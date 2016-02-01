@@ -1,9 +1,12 @@
 package com.act4heart.act4heart;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class StartMenu extends AppCompatActivity {
 
@@ -11,6 +14,20 @@ public class StartMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_menu);
+
+        Button button_akut = (Button) findViewById(R.id.btn_akut);
+        button_akut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAkutActivity();
+
+            }
+        });
+    }
+
+    void startAkutActivity() {
+        Intent start_akut = new Intent(this, AkutSituationActivity.class);
+        startActivity(start_akut);
     }
 
     @Override
