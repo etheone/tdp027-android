@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Act4Heart.iml" filepath="$PROJECT_DIR$/Act4Heart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/act4Heart-Android.iml" filepath="$PROJECT_DIR$/act4Heart-Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
