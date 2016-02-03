@@ -46,9 +46,14 @@ public class RelapseStep1Fragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               goToStep2();
+                goToStep2();
             }
         });
+
+        BlueClockFragment clock = BlueClockFragment.newInstance();
+        clock.setTimer(100);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step1, clock).commit();
+
         // Inflate the layout for this fragment
         return v;
     }
