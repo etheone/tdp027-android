@@ -1,5 +1,7 @@
 package com.act4heart.act4heart;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class StartMenu extends AppCompatActivity {
+public class StartMenu extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
