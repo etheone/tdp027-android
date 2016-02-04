@@ -1,7 +1,5 @@
 package com.act4heart.act4heart;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,19 +15,31 @@ public class StartMenu extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_menu);
 
-        Button button_akut = (Button) findViewById(R.id.btn_akut);
-        button_akut.setOnClickListener(new View.OnClickListener() {
+        Button btnEmergency = (Button) findViewById(R.id.btn_akut);
+        btnEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAkutActivity();
+                startEmergencyActivity();
+            }
+        });
 
+        Button btnStartGame = (Button) findViewById(R.id.btn_game);
+        btnStartGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startGameActivity();
             }
         });
     }
 
-    void startAkutActivity() {
-        Intent start_akut = new Intent(this, AkutSituationActivity.class);
-        startActivity(start_akut);
+    void startEmergencyActivity() {
+        Intent emergency = new Intent(this, EmergencySituationActivity.class);
+        startActivity(emergency);
+    }
+
+    void startGameActivity() {
+        Intent game = new Intent(this, HeartGameActivity.class);
+        startActivity(game);
     }
 
     @Override

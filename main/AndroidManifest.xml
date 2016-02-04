@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.act4heart.act4heart">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AkutSituationActivity" />
-        <activity android:name=".RelapseProcessActivity"></activity>
+        <activity android:name=".EmergencySituationActivity" />
+        <activity android:name=".RelapseProcessActivity" />
+        <activity android:name=".HeartGameActivity"></activity>
     </application>
 
 </manifest>
