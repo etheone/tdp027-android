@@ -42,4 +42,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_gravity="left|center_vertical"
+        android:background="#e01d1d"
+        android:id="@+id/clock_container2_step3"
+        android:layout_below="@+id/btn_to_step4"
+        android:layout_alignLeft="@+id/clock_container_step3"
+        android:layout_alignStart="@+id/clock_container_step3" />
+
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,10 +41,13 @@ public class BlueClockFragment extends Fragment {
         final TextView minutes = (TextView) view.findViewById(R.id.minutes);
         final TextView seconds = (TextView) view.findViewById(R.id.seconds);
 
-        clockTimer = new CountDownTimer(countDown, 1000) {
+        //The seperator between hour and minutes
+        final TextView seperatorHour = (TextView) view.findViewById(R.id.seperatorHour);
+
+        clockTimer = new CountDownTimer(countDown, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
-                long currentSeconds = millisUntilFinished / 1000;
+                long currentSeconds = (long) Math.floor(millisUntilFinished / 1000);
                 long currentHours = currentSeconds/3600;
 
                 //Gets the correct minutes
@@ -66,14 +70,25 @@ public class BlueClockFragment extends Fragment {
 
                 if(currentHours > 9){
                     hours.setText(String.valueOf(currentHours));
-                } else {
+                } else if( currentHours > 0 ){
                     hours.setText("0" + String.valueOf(currentHours));
+
+                    //If the timer is below 1 hour, we set the field invisible once
+                    if(hours.getVisibility() == View.INVISIBLE) {
+                        hours.setVisibility(View.VISIBLE);
+                        seperatorHour.setVisibility(View.VISIBLE);
+                    }
+                } else if (hours.getVisibility() == View.VISIBLE) {
+                    hours.setVisibility(View.INVISIBLE);
+                    seperatorHour.setVisibility(View.INVISIBLE);
                 }
             }
 
+            //Sets the last tick in the clock fields.
             @Override
             public void onFinish() {
-                resetTimer();
+                minutes.setText("00");
+                seconds.setText("00");
             }
         };
 

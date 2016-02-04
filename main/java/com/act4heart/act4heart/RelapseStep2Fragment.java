@@ -48,6 +48,14 @@ public class RelapseStep2Fragment extends Fragment {
         clock.setTimer(300);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step2, clock).commit();
 
+        //Activate red clock
+        RedClockFragment redClock = RedClockFragment.newInstance();
+
+        //Sets the new timestamp for the red clock
+        redClock.saveNewTimeStamp();
+
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.clock_container2_step2, redClock).commit();
+
         // Inflate the layout for this fragment
         return v;
     }
