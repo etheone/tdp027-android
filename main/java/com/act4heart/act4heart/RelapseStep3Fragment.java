@@ -44,6 +44,12 @@ public class RelapseStep3Fragment extends Fragment {
                 goToStep4();
             }
         });
+
+        // Activate blue clock.
+        BlueClockFragment clock = BlueClockFragment.newInstance();
+        clock.setTimer(300);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step3, clock).commit();
+
         // Inflate the layout for this fragment
         return v;
     }
