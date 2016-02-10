@@ -45,7 +45,7 @@ public class RelapseStep4Fragment extends Fragment {
 
         //Sets the clock to continue
         redClock.continueClock();
-        
+
         getActivity().getSupportFragmentManager().beginTransaction().add(R.id.clock_container2_step4, redClock).commit();
 
         // Inflate the layout for this fragment

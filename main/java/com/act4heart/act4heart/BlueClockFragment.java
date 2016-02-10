@@ -1,6 +1,8 @@
 package com.act4heart.act4heart;
 
 import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,6 +19,7 @@ public class BlueClockFragment extends Fragment {
     private CountDownTimer clockTimer;
 
     private int countDown;
+    private Ringtone ringtone;
 
     public BlueClockFragment() {
         // Required empty public constructor
@@ -89,12 +92,27 @@ public class BlueClockFragment extends Fragment {
             public void onFinish() {
                 minutes.setText("00");
                 seconds.setText("00");
+
+                //Starts the alarm when the blue clock timer runs out
+                startAlarm();
             }
         };
 
         clockTimer.start();
 
         return view;
+    }
+
+    //Starts the alarm sound
+    private void startAlarm(){
+        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        ringtone = RingtoneManager.getRingtone(getContext(), notification);
+        ringtone.play();
+    }
+
+    //Stops the alarm sound
+    public void stopAlarm(){
+        ringtone.stop();
     }
 
     public void setTimer(int _countDown) {
