@@ -7,6 +7,8 @@ import android.os.Bundle;
 public class RelapseProcessActivity extends AppCompatActivity {
 
 
+    //If the timer has run out
+    public Boolean canProceed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

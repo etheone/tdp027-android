@@ -1,5 +1,6 @@
 package com.act4heart.act4heart;
 
+import android.app.Activity;
 import android.content.Context;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -44,6 +45,10 @@ public class BlueClockFragment extends Fragment {
         final TextView minutes = (TextView) view.findViewById(R.id.minutes);
         final TextView seconds = (TextView) view.findViewById(R.id.seconds);
 
+        //Initializes the ringtone that is to be played when the timer runs out
+        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        ringtone = RingtoneManager.getRingtone(getContext(), notification);
+
         //The seperator between hour and minutes
         final TextView seperatorHour = (TextView) view.findViewById(R.id.seperatorHour);
 
@@ -87,14 +92,19 @@ public class BlueClockFragment extends Fragment {
                 }
             }
 
-            //Sets the last tick in the clock fields.
             @Override
             public void onFinish() {
+
+                //Sets the last tick in the clock fields.
                 minutes.setText("00");
                 seconds.setText("00");
 
-                //Starts the alarm when the blue clock timer runs out
+                //Starts the alarm and open the alertbox when the blue clock timer runs out
                 startAlarm();
+                openAlert();
+
+                //Unlocks the button to procceed to the next step.
+                ((RelapseProcessActivity)getActivity()).canProceed = true;
             }
         };
 
@@ -103,10 +113,12 @@ public class BlueClockFragment extends Fragment {
         return view;
     }
 
+    private void openAlert() {
+        //TODO Create the alert fragment here
+    }
+
     //Starts the alarm sound
     private void startAlarm(){
-        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        ringtone = RingtoneManager.getRingtone(getContext(), notification);
         ringtone.play();
     }
 
@@ -137,10 +149,20 @@ public class BlueClockFragment extends Fragment {
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        //mListener = null;
+    public void onStop(){
+        super.onStop();
+
+        ringtone.stop();
     }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+
+        clockTimer.cancel();
+        ringtone.stop();
+    }
+
 
     //public interface OnFragmentInteractionListener {
         //void onFragmentInteraction(Uri uri);

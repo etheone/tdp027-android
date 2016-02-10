@@ -18,6 +18,8 @@ import android.widget.Button;
  */
 public class RelapseStep2Fragment extends Fragment {
 
+    private BlueClockFragment clock;
+
     public RelapseStep2Fragment() {
         // Required empty public constructor
     }
@@ -39,13 +41,17 @@ public class RelapseStep2Fragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToStep3();
+                //If the timer has run out, we can proceed
+                if(((RelapseProcessActivity)getActivity()).canProceed == true) {
+                    ((RelapseProcessActivity) getActivity()).canProceed = false;
+                    goToStep3();
+                }
             }
         });
 
         // Activate blue clock.
-        BlueClockFragment clock = BlueClockFragment.newInstance();
-        clock.setTimer(300);
+        clock = BlueClockFragment.newInstance();
+        clock.setTimer(5);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step2, clock).commit();
 
         //Activate red clock
@@ -62,9 +68,14 @@ public class RelapseStep2Fragment extends Fragment {
 
     public void goToStep3() {
         RelapseStep3Fragment step3 = RelapseStep3Fragment.newInstance();
+        clock.stopAlarm();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step3).commit();
     }
 
-
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        getActivity().getSupportFragmentManager().beginTransaction().remove(clock);
+    }
 
 }

@@ -17,6 +17,8 @@ import android.view.ViewGroup;
  */
 public class RelapseStep4Fragment extends Fragment {
 
+    private BlueClockFragment clock;
+
     public RelapseStep4Fragment() {
         // Required empty public constructor
     }
@@ -36,8 +38,8 @@ public class RelapseStep4Fragment extends Fragment {
 
 
         // Activate blue clock.
-        BlueClockFragment clock = BlueClockFragment.newInstance();
-        clock.setTimer(300);
+        clock = BlueClockFragment.newInstance();
+        clock.setTimer(5);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
         //Activate red clock
@@ -50,6 +52,12 @@ public class RelapseStep4Fragment extends Fragment {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.relapse_step4_fragment, container, false);
+    }
+
+    @Override
+    public void onDetach(){
+        super.onDetach();
+        getActivity().getSupportFragmentManager().beginTransaction().remove(clock);
     }
 
 }
