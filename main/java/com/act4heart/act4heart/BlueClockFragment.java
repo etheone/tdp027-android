@@ -1,7 +1,9 @@
 package com.act4heart.act4heart;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -114,8 +116,16 @@ public class BlueClockFragment extends Fragment {
     }
 
     private void openAlert() {
-        //TODO Create the alert fragment here
-    }
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getActivity());
+        dlgAlert.setMessage("You are allowed to move on ... RIP <3");
+        dlgAlert.setTitle("Time's up!");
+        dlgAlert.setPositiveButton("Ok...",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //dismiss the dialog
+                    }
+                });        dlgAlert.setCancelable(true);
+        dlgAlert.create().show();    }
 
     //Starts the alarm sound
     private void startAlarm(){
