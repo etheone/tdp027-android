@@ -54,6 +54,8 @@ public class RelapseStep3Fragment extends Fragment {
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
         clock.setTimer(5);
+        clock.linkButton(btn);
+
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step3, clock).commit();
 
         //Activate red clock

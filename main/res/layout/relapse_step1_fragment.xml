@@ -38,7 +38,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vidare till steg 2"
+        android:text="Nästa steg"
         android:id="@+id/btn_to_step2"
         android:layout_gravity="right|center_vertical"
         android:layout_below="@+id/clock_container_step1"

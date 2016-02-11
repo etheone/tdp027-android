@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class BlueClockFragment extends Fragment {
@@ -23,6 +24,7 @@ public class BlueClockFragment extends Fragment {
 
     private int countDown;
     private Ringtone ringtone;
+    private Button btnLink = null;
 
     public BlueClockFragment() {
         // Required empty public constructor
@@ -107,6 +109,11 @@ public class BlueClockFragment extends Fragment {
 
                 //Unlocks the button to procceed to the next step.
                 ((RelapseProcessActivity)getActivity()).canProceed = true;
+
+                // Change the text of the now clickable button
+                if(btnLink != null) {
+                    btnLink.setText("Gå vidare till nästa steg");
+                }
             }
         };
 
@@ -171,6 +178,9 @@ public class BlueClockFragment extends Fragment {
 
         clockTimer.cancel();
         ringtone.stop();
+    }
+    public void linkButton(Button btn) {
+        btnLink = btn;
     }
 
 
