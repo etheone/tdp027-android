@@ -40,6 +40,7 @@ public class RelapseStep4Fragment extends Fragment {
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
         clock.setTimer(5);
+        clock.setDialogText("Välj något av alternativen!");
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
         //Activate red clock

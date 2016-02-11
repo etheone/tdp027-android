@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.act4heart.act4heart.BlueClockFragment"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="#EE494D">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -12,7 +13,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/hours"
         android:visibility="invisible"
-        android:inputType="time" />
+        android:inputType="time"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,23 +23,32 @@
         android:text=":"
         android:id="@+id/seperatorHour"
         android:visibility="invisible"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/minutes"
-        android:inputType="time" />
+        android:inputType="time"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=":"
-        android:id="@+id/textView2" />
+        android:id="@+id/textView2"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/seconds"
-        android:inputType="time" />
+        android:inputType="time"
+        android:textSize="30dp"
+        android:layout_marginRight="5dp"
+        android:textColor="#FFFFFF"/>
 </LinearLayout>

@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.act4heart.act4heart.RelapseStep4Fragment">
+    tools:context="com.act4heart.act4heart.RelapseStep4Fragment"
+    android:background="#FFFFFF">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,18 +17,17 @@
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp"
-        android:text="Fusce laoreet ante in porta sodales. Donec aliquam venenatis\
-        dolor.Fusce laoreet ante in porta sodales. Donec aliquam venenatis dolor."
+        android:text="Välj en knapp när den blå klockan blir 00:00"
         android:paddingLeft="50dp"
-        android:paddingRight="50dp" />
+        android:paddingRight="50dp"
+        android:textSize="17dp"/>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="left|center_vertical"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/holo_blue_bright"
+        android:layout_marginTop="20dp"
         android:id="@+id/clock_container_step4"
         android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true"></LinearLayout>
@@ -38,9 +38,12 @@
         android:text="Jag är en knapp"
         android:id="@+id/temporary_btn"
         android:layout_gravity="right|center_vertical"
+        android:background="@drawable/standard_button"
         android:layout_below="@+id/clock_container_step4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -48,19 +51,22 @@
         android:text="Jag är en till knapp"
         android:id="@+id/temporary_btn2"
         android:layout_gravity="right|center_vertical"
+        android:background="@drawable/standard_button"
         android:layout_below="@+id/temporary_btn"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="left|center_vertical"
-        android:background="#e01d1d"
         android:id="@+id/clock_container2_step4"
-        android:layout_below="@+id/temporary_btn2"
+        android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/clock_container_step4"
-        android:layout_alignStart="@+id/clock_container_step4" />
+        android:layout_alignStart="@+id/clock_container_step4"
+        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>

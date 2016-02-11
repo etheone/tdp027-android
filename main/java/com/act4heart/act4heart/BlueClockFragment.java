@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -25,6 +26,7 @@ public class BlueClockFragment extends Fragment {
     private int countDown;
     private Ringtone ringtone;
     private Button btnLink = null;
+    private String dialogMessage = "5 minuter har gått. Gå vidare till nästa sida!";
 
     public BlueClockFragment() {
         // Required empty public constructor
@@ -112,7 +114,7 @@ public class BlueClockFragment extends Fragment {
 
                 // Change the text of the now clickable button
                 if(btnLink != null) {
-                    btnLink.setText("Gå vidare till nästa steg");
+                    btnLink.setAlpha(1.f);
                 }
             }
         };
@@ -122,11 +124,14 @@ public class BlueClockFragment extends Fragment {
         return view;
     }
 
+    public void setDialogText(String newMessage){
+        dialogMessage = newMessage;
+    }
     private void openAlert() {
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getActivity());
-        dlgAlert.setMessage("You are allowed to move on ... RIP <3");
-        dlgAlert.setTitle("Time's up!");
-        dlgAlert.setPositiveButton("Ok...",
+        dlgAlert.setMessage(dialogMessage);
+        dlgAlert.setTitle("5 minuter har gått!");
+        dlgAlert.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //dismiss the dialog
