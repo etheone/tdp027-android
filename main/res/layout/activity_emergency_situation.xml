@@ -7,47 +7,52 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".EmergencySituationActivity">
+    tools:context=".EmergencySituationActivity"
+    android:background="#ffffff">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start > Akutsituation"/>
+            android:text="Start > Akutsituation"
+            android:id="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Har du ingen nitroglycerin:"
         android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="34dp" />
+        android:layout_marginTop="130dp"
+        android:textSize="17dp" />
 
     <Button
-        android:layout_width="250dp"
-        android:layout_height="70dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="Ring Joel"
         android:id="@+id/btn_emergency_call"
         android:layout_below="@+id/textView3"
         android:layout_alignLeft="@+id/btn_start_relapse"
         android:layout_alignStart="@+id/btn_start_relapse"
-        android:background="@android:color/holo_red_dark"/>
+        android:background="@drawable/standard_button" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ta en nitroglycerin och:"
         android:id="@+id/textView4"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
+        android:layout_above="@+id/btn_start_relapse"
+        android:layout_centerHorizontal="true"
+        android:textSize="17dp" />
 
     <Button
-        android:layout_width="250dp"
-        android:layout_height="70dp"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:text="Starta återfallsprocess"
         android:id="@+id/btn_start_relapse"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true" />
+        android:background="@drawable/standard_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp" />
 
 </RelativeLayout>
