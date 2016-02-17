@@ -6,4 +6,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="ambulans"> <![CDATA[
+ När en person drabbas av hjärtinfarkt för första gången är det akut att ringa 112 efter <u>ambulans!</u>
+  ]]></string>
 </resources>

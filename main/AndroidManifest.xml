@@ -3,6 +3,7 @@
     package="com.act4heart.act4heart">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,8 @@
         </activity>
         <activity android:name=".EmergencySituationActivity" />
         <activity android:name=".RelapseProcessActivity" />
-        <activity android:name=".HeartGameActivity"></activity>
+        <activity android:name=".HeartGameActivity" />
+        <activity android:name=".FirstTime"></activity>
     </application>
 
 </manifest>

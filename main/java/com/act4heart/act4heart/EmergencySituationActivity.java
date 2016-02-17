@@ -26,9 +26,14 @@ public class EmergencySituationActivity extends AppCompatActivity {
         buttonEmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EmergencyCall("0764096617");
+                startFirstTimeActivity();
             }
         });
+    }
+
+    private void startFirstTimeActivity(){
+        Intent intent = new Intent(this, FirstTime.class);
+        startActivity(intent);
     }
 
     private void startRelapseActivity() {
@@ -36,7 +41,4 @@ public class EmergencySituationActivity extends AppCompatActivity {
         startActivity(start_relapse_process);
     }
 
-    private void EmergencyCall(final String phoneNumber) {
-        startActivity(new Intent(Intent.ACTION_CALL, Uri.fromParts("tel", phoneNumber, null)));
-    }
 }
