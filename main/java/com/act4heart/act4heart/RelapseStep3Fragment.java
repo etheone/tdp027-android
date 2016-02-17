@@ -1,7 +1,5 @@
 package com.act4heart.act4heart;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -57,14 +55,6 @@ public class RelapseStep3Fragment extends Fragment {
         clock.linkButton(btn);
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step3, clock).commit();
-
-        //Activate red clock
-        RedClockFragment redClock = RedClockFragment.newInstance();
-
-        //Sets the clock to continue
-        redClock.continueClock();
-
-        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.clock_container2_step3, redClock).commit();
 
         // Inflate the layout for this fragment
         return v;

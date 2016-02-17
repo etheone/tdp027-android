@@ -1,12 +1,11 @@
 package com.act4heart.act4heart;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -36,23 +35,35 @@ public class RelapseStep4Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        View view = inflater.inflate(R.layout.relapse_step4_fragment, container, false);
 
+        Button btn = (Button) view.findViewById(R.id.stillHurting);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //If the timer has run out, we can proceed
+                if(((RelapseProcessActivity)getActivity()).canProceed == true) {
+                    ((RelapseProcessActivity) getActivity()).canProceed = false;
+                    goToLastStep();
+                }
+            }
+        });
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
         clock.setTimer(5);
         clock.setDialogText("Välj något av alternativen!");
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
-        //Activate red clock
-        RedClockFragment redClock = RedClockFragment.newInstance();
-
-        //Sets the clock to continue
-        redClock.continueClock();
-
-        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.clock_container2_step4, redClock).commit();
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.relapse_step4_fragment, container, false);
+        return view;
+    }
+
+    public void goToLastStep() {
+        RelapseLastPageFragment lastStep = RelapseLastPageFragment.newInstance();
+        clock.stopAlarm();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, lastStep).commit();
     }
 
     @Override

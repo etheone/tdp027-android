@@ -15,6 +15,9 @@ public class RelapseProcessActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relapse_process);
 
+        RedClock redClock = new RedClock(this);
+        redClock.saveNewVariable("test1","");
+        redClock.saveNewVariable("test2", "test22");
         //RelapseStep1Fragment step1 = RelapseStep1Fragment.newInstance();
         // getSupportFragmentManager().beginTransaction()
        // .replace(R.id.fragment_container, gMapFragment).commit();
