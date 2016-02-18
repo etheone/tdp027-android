@@ -25,7 +25,11 @@
         <activity android:name=".EmergencySituationActivity" />
         <activity android:name=".RelapseProcessActivity" />
         <activity android:name=".HeartGameActivity" />
-        <activity android:name=".FirstTimeActivity"></activity>
+        <activity android:name=".FirstTimeActivity" />
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/title_activity_history"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

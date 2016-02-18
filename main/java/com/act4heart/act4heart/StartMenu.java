@@ -30,6 +30,14 @@ public class StartMenu extends AppCompatActivity{
                 startGameActivity();
             }
         });
+
+        Button btnHistory = (Button) findViewById(R.id.btn_history);
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startHistoryActivity();
+            }
+        });
     }
 
     void startEmergencyActivity() {
@@ -39,6 +47,11 @@ public class StartMenu extends AppCompatActivity{
 
     void startGameActivity() {
         Intent game = new Intent(this, HeartGameActivity.class);
+        startActivity(game);
+    }
+
+    void startHistoryActivity() {
+        Intent game = new Intent(this, HistoryActivity.class);
         startActivity(game);
     }
 

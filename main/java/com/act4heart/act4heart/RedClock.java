@@ -49,6 +49,8 @@ public class RedClock {
         try {
             //Puts the new Timestamp into the JSONArray and saves it to prefs
             timerData.put(new JSONObject().put("Start",  new SimpleDateFormat("yyyy,MM,dd,HH,mm,ss").format(Calendar.getInstance().getTime())));
+            ((JSONObject)timerData.get(timerData.length()-1)).put("Second", "");
+            ((JSONObject)timerData.get(timerData.length()-1)).put("Third", "");
             String saveString = timerData.toString();
             prefs.edit().putString("timerData", saveString).commit();
         } catch (JSONException e) {
