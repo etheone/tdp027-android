@@ -47,6 +47,7 @@ public class FirstTimeActivity extends AppCompatActivity {
         TextView positionText = (TextView) findViewById(R.id.positionText2);
         MyLocationListener myLocationListener = new MyLocationListener(getApplicationContext(), positionText);
 
+        //getActionBar().setIcon(R.drawable.ic_volume_up);
 
     }
 
@@ -55,5 +56,7 @@ public class FirstTimeActivity extends AppCompatActivity {
         EmergencyCallHandler emergencyCallHandler = new EmergencyCallHandler(phoneIcon, this);
         emergencyCallHandler.emergencyCall("0708565661");
     }
+
+
 
 }
