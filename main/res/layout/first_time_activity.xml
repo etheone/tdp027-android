@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".FirstTimeActivity"
     android:background="#FFFFFF">
@@ -13,6 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:text="Start > Akutsituation > Första gången"
         android:id="@+id/textView" />
 
@@ -26,8 +24,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="100dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp" />
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
 
     <ImageView
         android:layout_width="100dp"
@@ -37,6 +35,60 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:src="@drawable/phone_example" />
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/positionLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Din akutsituation:"
+        android:id="@+id/situationLabel"
+        android:textSize="24dp"
+        android:layout_below="@+id/phone_icon"
+        android:layout_marginTop="30dp"
+        android:layout_alignLeft="@+id/positionLayout"
+        android:layout_alignStart="@+id/positionLayout" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/situationLabel"
+        android:layout_alignLeft="@+id/situationLabel"
+        android:layout_alignStart="@+id/situationLabel"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Letar efter gatuaddress..."
+            android:id="@+id/positionText2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textSize="17dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuvarande position:"
+            android:id="@+id/labelPosition2"
+            android:textSize="17dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
 
 </RelativeLayout>
