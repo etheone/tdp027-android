@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.act4heart.act4heart.RelapseStep3Fragment"
-    android:background="#FFFFFF">
+    android:background="#ee4a4f">
 
     <TextView
         android:layout_width="wrap_content"

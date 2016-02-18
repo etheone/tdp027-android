@@ -1,6 +1,7 @@
 package com.act4heart.act4heart;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,10 +12,19 @@ import android.widget.Button;
 
 public class StartMenu extends AppCompatActivity{
 
+    public static boolean soundOn = true;
+    public static SharedPreferences prefs;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_menu);
+
+        //Get previous value for the sound
+        prefs = getSharedPreferences(
+                "soundOn", 0);
+        soundOn = prefs.getBoolean("soundOn", true);
 
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
@@ -51,6 +61,14 @@ public class StartMenu extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_menu, menu);
+
+        if(soundOn) {
+            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
+        }
+        else{
+            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_off);
+        }
+
         return true;
     }
 
@@ -66,6 +84,18 @@ public class StartMenu extends AppCompatActivity{
             return true;
         }
 
+        if (id == R.id.action_sound) {
+            if(soundOn) {
+                item.setIcon(R.drawable.ic_volume_off);
+                soundOn = false;
+            }
+            else{
+                item.setIcon(R.drawable.ic_volume_up);
+                soundOn = true;
+            }
+            prefs.edit().putBoolean("soundOn", soundOn).commit();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

@@ -58,7 +58,7 @@ public class RelapseStep1Fragment extends Fragment {
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
         clock.setTimer(5);
-        clock.linkButton(btn);
+        clock.linkButton(btn, 1);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step1, clock).commit();
 
         //Saves the first timestamp for this emergency

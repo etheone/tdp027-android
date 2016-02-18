@@ -1,94 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".FirstTimeActivity"
-    android:background="#FFFFFF">
+    android:layout_width="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Start > Akutsituation > Första gången"
-        android:id="@+id/textView" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ambulans"
-        android:id="@+id/ambulans_text"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" />
-
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/phone_icon"
-        android:layout_below="@+id/ambulans_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/phone_example" />
-
-    <RelativeLayout
-        android:orientation="horizontal"
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/positionLayout"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Din akutsituation:"
-        android:id="@+id/situationLabel"
-        android:textSize="24dp"
-        android:layout_below="@+id/phone_icon"
-        android:layout_marginTop="30dp"
-        android:layout_alignLeft="@+id/positionLayout"
-        android:layout_alignStart="@+id/positionLayout" />
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar2"
+        android:background="@android:color/black"
+        android:titleTextColor="@android:color/white">
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/situationLabel"
-        android:layout_alignLeft="@+id/situationLabel"
-        android:layout_alignStart="@+id/situationLabel"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".FirstTimeActivity"
+        android:background="#ee4a4f">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Letar efter gatuaddress..."
-            android:id="@+id/positionText2"
+            android:layout_marginLeft="10dp"
+            android:text="Start > Akutsituation > Första gången"
+            android:id="@+id/textView" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ambulans"
+            android:id="@+id/ambulans_text"
+            android:layout_below="@+id/textView"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:textSize="17dp" />
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/phone_icon"
+            android:layout_below="@+id/ambulans_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/phone_example" />
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/positionLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nuvarande position:"
-            android:id="@+id/labelPosition2"
-            android:textSize="17dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:text="Din akutsituation:"
+            android:id="@+id/situationLabel"
+            android:textSize="24dp"
+            android:layout_below="@+id/phone_icon"
+            android:layout_marginTop="30dp"
+            android:layout_alignLeft="@+id/positionLayout"
+            android:layout_alignStart="@+id/positionLayout" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/situationLabel"
+            android:layout_alignLeft="@+id/situationLabel"
+            android:layout_alignStart="@+id/situationLabel"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Letar efter gatuaddress..."
+                android:id="@+id/positionText2"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textSize="17dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nuvarande position:"
+                android:id="@+id/labelPosition2"
+                android:textSize="17dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+
     </RelativeLayout>
-
-
-</RelativeLayout>
+</LinearLayout>
