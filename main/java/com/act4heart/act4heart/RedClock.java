@@ -6,6 +6,7 @@ import android.location.Address;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.provider.CalendarContract;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,12 +18,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class RedClock {
-
-    private long timeStamp;
 
     private JSONArray timerData;
 
@@ -35,31 +36,10 @@ public class RedClock {
         prefs = context.getSharedPreferences(
                 "timerData", 0);
 
-        //Get current timestamp.
-        timeStamp =  System.currentTimeMillis();
-
-        //If we are continuing the clock in another fragment, we want the same
-        //time to continue. Get the timestamp and give currentTime the correct
-        //passed time.
-
-
-
-        getTimerData();
-
-        // prefs.edit().putLong("timeStamp", timeStamp).apply();
-
-
-    }
-
-    //Updates the time
-    private void updateTimer(){
-        /*currentTime += 1000;
-        int currentSeconds = currentTime / 1000;
-        int currentHours = currentSeconds/3600;
-
-        //Gets the correct minutes
-        int currentMinutes = currentSeconds/60 - currentHours * 60;
-        currentSeconds = currentSeconds - (currentMinutes * 60) - (currentHours * 3600);*/
+        //Updates the private variable timerData with the saved data
+        retrieveTimerData();
+        saveStartTime();
+        getSavedHHmmByKey("Start");
 
     }
 
@@ -68,7 +48,7 @@ public class RedClock {
 
         try {
             //Puts the new Timestamp into the JSONArray and saves it to prefs
-            timerData.put(new JSONObject().put("Start", timeStamp));
+            timerData.put(new JSONObject().put("Start",  new SimpleDateFormat("yyyy,MM,dd,HH,mm,ss").format(Calendar.getInstance().getTime())));
             String saveString = timerData.toString();
             prefs.edit().putString("timerData", saveString).commit();
         } catch (JSONException e) {
@@ -84,23 +64,39 @@ public class RedClock {
 
                 //Get a timestamp for current time and puts it into timerdata.
                 //In other words, this saves the time
-                int timeStamp = (int)System.currentTimeMillis();
-                ((JSONObject)timerData.get(timerData.length()-1)).put(key, timeStamp);
+                ((JSONObject)timerData.get(timerData.length()-1)).put(key, new SimpleDateFormat("yyyy,MM,dd,HH,mm,ss").format(Calendar.getInstance().getTime()));
             } else {
                 ((JSONObject)timerData.get(timerData.length()-1)).put(key, value);
             }
+
+            //Saves the timerData to the device
             String saveString = timerData.toString();
             prefs.edit().putString("timerData", saveString).commit();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        getTimerData();
-
     }
 
-    //Fetches saved data.
-    private void getTimerData(){
+    //Returns hours and minutes of the saved data belonging to the key
+    public String getSavedHHmmByKey(String key){
+
+        String returnString = "";
+        try {
+
+            //Gets the data value for this key and chooses only hours and minutes to return
+            String data = (String)((JSONObject)timerData.get(timerData.length()-1)).get(key);
+            String[] temp = data.split(",");
+            returnString = temp[3] + ":" + temp[4];
+
+            Log.d("data", returnString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return returnString;
+    }
+
+    //Updates the private variable timerData with the saved data
+    private void retrieveTimerData(){
 
         //Gets the data from shared preferences
         String savedData = prefs.getString("timerData", null);
@@ -116,12 +112,11 @@ public class RedClock {
             }
         } else {
 
-            //Makes sure we dont return a null JSONArray
+            //Makes sure we don't save a null JSONArray
             savedDataArray = new JSONArray();
         }
 
-
-
         timerData = savedDataArray;
     }
+
 }

@@ -55,6 +55,7 @@ public class RelapseStep4Fragment extends Fragment {
         clock.setDialogText("Välj något av alternativen!");
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
+        ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Fourth", "");
 
         // Inflate the layout for this fragment
         return view;

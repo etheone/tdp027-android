@@ -54,6 +54,8 @@ public class RelapseStep2Fragment extends Fragment {
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step2, clock).commit();
 
+        ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Second","");
+
         // Inflate the layout for this fragment
         return v;
     }

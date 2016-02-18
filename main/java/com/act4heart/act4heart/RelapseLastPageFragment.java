@@ -39,6 +39,12 @@ public class RelapseLastPageFragment extends Fragment {
 
         MyLocationListener myLocationListener = new MyLocationListener(this.getContext(),positionText);
 
+        TextView startTimeStamp = (TextView) view.findViewById(R.id.activityStartText);
+        startTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).redClock.getSavedHHmmByKey("Start"));
+
+        TextView lastTimeStamp = (TextView) view.findViewById(R.id.lastNitroText);
+        lastTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).redClock.getSavedHHmmByKey("Fourth"));
+
         return view;
     }
 

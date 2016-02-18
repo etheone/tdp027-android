@@ -9,15 +9,14 @@ public class RelapseProcessActivity extends AppCompatActivity {
 
     //If the timer has run out
     public Boolean canProceed = false;
+    public RedClock redClock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relapse_process);
 
-        RedClock redClock = new RedClock(this);
-        redClock.saveNewVariable("test1","");
-        redClock.saveNewVariable("test2", "test22");
+        redClock = new RedClock(this);
         //RelapseStep1Fragment step1 = RelapseStep1Fragment.newInstance();
         // getSupportFragmentManager().beginTransaction()
        // .replace(R.id.fragment_container, gMapFragment).commit();

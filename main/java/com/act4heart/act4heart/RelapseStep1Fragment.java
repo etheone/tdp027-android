@@ -61,6 +61,9 @@ public class RelapseStep1Fragment extends Fragment {
         clock.linkButton(btn);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step1, clock).commit();
 
+        //Saves the first timestamp for this emergency
+        ((RelapseProcessActivity)this.getActivity()).redClock.saveStartTime();
+
         // Inflate the layout for this fragment
         return v;
     }
