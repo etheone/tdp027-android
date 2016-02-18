@@ -5,27 +5,11 @@
     android:layout_height="match_parent"
     tools:context="com.act4heart.act4heart.HistoryActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Historik"
-        android:id="@+id/historyLabel"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="35dp" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/historyScrollView"
-        android:layout_below="@+id/historyLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:fillViewport="false" >
-
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/historyListView" />
-    </ScrollView>
+        android:id="@+id/historyContainer"></RelativeLayout>
 </RelativeLayout>

@@ -38,9 +38,6 @@ public class RedClock {
 
         //Updates the private variable timerData with the saved data
         retrieveTimerData();
-        saveStartTime();
-        getSavedHHmmByKey("Start");
-
     }
 
     public void saveStartTime(){
@@ -90,7 +87,6 @@ public class RedClock {
             String[] temp = data.split(",");
             returnString = temp[3] + ":" + temp[4];
 
-            Log.d("data", returnString);
         } catch (JSONException e) {
             e.printStackTrace();
         }

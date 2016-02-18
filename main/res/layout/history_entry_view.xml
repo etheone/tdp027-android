@@ -8,30 +8,11 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/historyStart"
+        android:textSize="17dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/historySecondNitro"
-        android:layout_below="@+id/historyStart"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/historyThirdNitro"
-        android:layout_below="@+id/historySecondNitro"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/historyAmountTaken"
-        android:layout_below="@+id/historyThirdNitro"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>
