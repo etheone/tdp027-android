@@ -198,6 +198,8 @@ public class BlueClockFragment extends Fragment {
 
             ringtone.stop();
         }
+
+        clockTimer.cancel();
     }
 
     public void setTimer(int _countDown) {
@@ -232,9 +234,9 @@ public class BlueClockFragment extends Fragment {
     public void onDetach(){
         super.onDetach();
 
-        clockTimer.cancel();
         stopAlarm();
     }
+
     public void linkButton(Button btn, int step) {
         currentStep = step;
         btnLink = btn;

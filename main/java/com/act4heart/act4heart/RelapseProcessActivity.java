@@ -1,5 +1,8 @@
 package com.act4heart.act4heart;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -90,5 +93,32 @@ public class RelapseProcessActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //Override the standard back button function
+    @Override
+    public void onBackPressed(){
+        openAlert();
+    }
+
+    private void openAlert() {
+
+        // Create a dialog alert that tells user that you are ending the emergency process
+        // Choose either Ja to end the process or no to continue
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+        dlgAlert.setMessage("Vilken du verkligen avbryta och återgå till huvudmenyn?");
+        dlgAlert.setTitle("OBS!");
+        dlgAlert.setPositiveButton("Ja",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Change to startMenu Activity
+                        Intent startMenu = new Intent(getApplicationContext(), StartMenu.class);
+                        startActivity(startMenu);
+
+                    }
+                });
+        dlgAlert.setNegativeButton("Nej", null);
+        dlgAlert.setCancelable(true);
+        dlgAlert.create().show();    }
+
 
 }
