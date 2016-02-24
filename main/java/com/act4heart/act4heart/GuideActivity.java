@@ -1,52 +1,21 @@
 package com.act4heart.act4heart;
 
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class RelapseProcessActivity extends AppCompatActivity {
-
-
-    //If the timer has run out
-    public Boolean canProceed = false;
-    public RedClock redClock;
-
-    public static boolean demoMode = false;
+public class GuideActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_relapse_process);
+        setContentView(R.layout.guide_activity);
 
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
-
-        redClock = new RedClock(this);
-        //RelapseStep1Fragment step1 = RelapseStep1Fragment.newInstance();
-        // getSupportFragmentManager().beginTransaction()
-       // .replace(R.id.fragment_container, gMapFragment).commit();
-
-        //getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step1).commit();
-        switchFragment(1);
-    }
-
-    public void switchFragment(int nextFragment){
-        Fragment fragment = null;
-        if(nextFragment == 1){
-            fragment = RelapseStep1Fragment.newInstance();
-        } else if (nextFragment == 2) {
-            fragment= RelapseStep2Fragment.newInstance();
-        } else if (nextFragment == 3) {
-            fragment= RelapseStep2Fragment.newInstance();
-        } else if (nextFragment == 4) {
-            fragment= RelapseStep2Fragment.newInstance();
-        }
-        getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, fragment).commit();
-
     }
 
     @Override
@@ -90,5 +59,4 @@ public class RelapseProcessActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
