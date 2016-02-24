@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/act4heartbg">
 
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -18,8 +19,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".StartMenu"
-    android:background="#ffffff">
+    tools:context=".StartMenu">
 
 
 
@@ -73,7 +73,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:id="@+id/imageView"
-        android:src="@drawable/act4heart"
+        android:src="@drawable/logo420x420"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:paddingBottom="60dp"

@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.act4heart.act4heart.RelapseProcessActivity"
     android:id="@+id/relapse_fragment_container"
-    >
+    android:background="@drawable/act4heartbg">
 
 <!--
     <FrameLayout
