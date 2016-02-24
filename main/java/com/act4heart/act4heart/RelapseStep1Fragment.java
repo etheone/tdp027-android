@@ -19,6 +19,7 @@ import android.widget.TextView;
 public class RelapseStep1Fragment extends Fragment {
 
     private ImageView phoneIcon;
+    private boolean isCallingEmergancy;
     public RelapseStep1Fragment() {
         // Required empty public constructor
     }
@@ -51,11 +52,21 @@ public class RelapseStep1Fragment extends Fragment {
             }
         });
 
+        isCallingEmergancy = false;
+
         phoneIcon = (ImageView)v.findViewById(R.id.phone_icon);
         phoneIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeCall();
+                if (isCallingEmergancy) {
+                    // End emergency call.
+                    EmergencyCallHandler.endOngoingCall(getContext());
+                    isCallingEmergancy = false;
+
+                } else {
+                    isCallingEmergancy = true;
+                    makeCall();
+                }
             }
         });
 
@@ -70,7 +81,7 @@ public class RelapseStep1Fragment extends Fragment {
     private void makeCall() {
         phoneIcon = (ImageView)getActivity().findViewById(R.id.phone_icon);
         EmergencyCallHandler emergencyCallHandler = new EmergencyCallHandler(phoneIcon, (RelapseProcessActivity)getActivity());
-        emergencyCallHandler.emergencyCall("0739474140");
+        emergencyCallHandler.emergencyCall(StartMenu.EMERGENCY_PHONE_NUMBER);
     }
 
     public void goToStep2() {

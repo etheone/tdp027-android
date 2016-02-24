@@ -7,9 +7,15 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.widget.ImageView;
+
+import com.android.internal.telephony.ITelephony;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 /**
  * Created by joagy323 on 2016-02-18.
@@ -45,6 +51,31 @@ public class EmergencyCallHandler {
 
             // start a thread that keeps track of phone state. changes phone icon when call ends.
             new CheckIfCallEnds().execute();
+        }
+    }
+
+    public static void endOngoingCall(Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        Method method = null;
+        try {
+            Class clazz = Class.forName(telephonyManager.getClass().getName());
+            method = clazz.getDeclaredMethod("getITelephony");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+        method.setAccessible(true);
+        try {
+            ITelephony telephonyService = (ITelephony) method.invoke(telephonyManager);
+            telephonyService.endCall();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 

@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,11 +21,16 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
+
+import com.android.internal.telephony.*;
 
 public class FirstTimeActivity extends AppCompatActivity {
 
     private int id;
+    private boolean isCallingEmergancy;
     ImageView phoneIcon;
 
     @Override
@@ -35,6 +41,8 @@ public class FirstTimeActivity extends AppCompatActivity {
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
+
+        isCallingEmergancy = false;
 
         TextView tv = (TextView) findViewById(R.id.ambulans_text);
         tv.setText(Html.fromHtml(getString(R.string.ambulans)));
@@ -47,7 +55,15 @@ public class FirstTimeActivity extends AppCompatActivity {
         phoneIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                makeCall();
+                if (isCallingEmergancy) {
+                    // End emergency call.
+                    EmergencyCallHandler.endOngoingCall(getApplicationContext());
+                    isCallingEmergancy = false;
+
+                } else {
+                    isCallingEmergancy = true;
+                    makeCall();
+                }
             }
         });
 
@@ -61,7 +77,7 @@ public class FirstTimeActivity extends AppCompatActivity {
     private void makeCall() {
         phoneIcon = (ImageView)findViewById(R.id.phone_icon);
         EmergencyCallHandler emergencyCallHandler = new EmergencyCallHandler(phoneIcon, this);
-        emergencyCallHandler.emergencyCall("0739474140");
+        emergencyCallHandler.emergencyCall(StartMenu.EMERGENCY_PHONE_NUMBER);
     }
 
     @Override

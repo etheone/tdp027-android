@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         tools:context="com.act4heart.act4heart.RelapseProcessActivity"
         android:id="@+id/relapse_fragment_container"
-        android:background="#ee4a4f"
+
         >
 
     <!--
