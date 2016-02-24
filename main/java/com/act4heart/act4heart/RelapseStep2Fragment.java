@@ -42,7 +42,7 @@ public class RelapseStep2Fragment extends Fragment {
                 //If the timer has run out, we can proceed
                 if(((RelapseProcessActivity)getActivity()).canProceed == true) {
                     ((RelapseProcessActivity) getActivity()).canProceed = false;
-                    goToStep3();
+                    //BEHÖVS INTE LÄNGRE goToStep3();
                 }
             }
         });
@@ -50,7 +50,7 @@ public class RelapseStep2Fragment extends Fragment {
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
         clock.setTimer(5);
-        clock.linkButton(btn);
+        clock.linkButton(btn, 2);
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step2, clock).commit();
 
@@ -60,11 +60,11 @@ public class RelapseStep2Fragment extends Fragment {
         return v;
     }
 
-    public void goToStep3() {
+/*    public void goToStep3() {
         RelapseStep3Fragment step3 = RelapseStep3Fragment.newInstance();
         clock.stopAlarm();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step3).commit();
-    }
+    }*/
 
     @Override
     public void onDetach(){

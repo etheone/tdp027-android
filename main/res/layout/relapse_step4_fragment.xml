@@ -2,24 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.act4heart.act4heart.RelapseStep4Fragment">
+    tools:context="com.act4heart.act4heart.RelapseStep4Fragment"
+    android:background="#ee4a4f">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start > Akutsituation > Återfallsprocessen 4/4"/>
+        android:text="Start > Akutsituation > Återfallsprocessen 4/4"
+        android:id="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="78dp"
         android:text="Välj en knapp när den blå klockan blir 00:00"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
-        android:textSize="17dp"/>
+        android:textSize="17dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <LinearLayout
         android:orientation="horizontal"

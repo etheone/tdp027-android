@@ -5,4 +5,10 @@
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+    <item android:id="@+id/action_sound"
+        android:title="Sound"
+        android:icon="@drawable/ic_volume_up"
+        android:orderInCategory="1"
+        app:showAsAction="always" />
 </menu>

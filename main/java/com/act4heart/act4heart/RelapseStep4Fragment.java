@@ -53,6 +53,7 @@ public class RelapseStep4Fragment extends Fragment {
         clock = BlueClockFragment.newInstance();
         clock.setTimer(5);
         clock.setDialogText("Välj något av alternativen!");
+        clock.linkButton(null, 4);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
         ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Fourth", "");

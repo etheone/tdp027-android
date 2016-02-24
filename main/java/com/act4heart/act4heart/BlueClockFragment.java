@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -27,6 +28,12 @@ public class BlueClockFragment extends Fragment {
     private Ringtone ringtone;
     private Button btnLink = null;
     private String dialogMessage = "5 minuter har gått. Gå vidare till nästa sida!";
+
+    // Sound variables
+    private int currentVolume;
+    private boolean soundIsPlaying = false;
+
+    private int currentStep = 1;
 
     public BlueClockFragment() {
         // Required empty public constructor
@@ -128,25 +135,69 @@ public class BlueClockFragment extends Fragment {
         dialogMessage = newMessage;
     }
     private void openAlert() {
+
+        // Create a dialog alert that tells user some information
+        // Disappear when the button is pressed.
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getActivity());
         dlgAlert.setMessage(dialogMessage);
         dlgAlert.setTitle("5 minuter har gått!");
         dlgAlert.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        //dismiss the dialog
-                    }
-                });        dlgAlert.setCancelable(true);
+                        switch (currentStep) {
+                            case 1:
+                                RelapseStep2Fragment step2 = RelapseStep2Fragment.newInstance();
+                                stopAlarm();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step2).commit();
+                                break;
+                            case 2:
+                                RelapseStep3Fragment step3 = RelapseStep3Fragment.newInstance();
+                                stopAlarm();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step3).commit();
+                                break;
+                            case 3:
+                                RelapseStep4Fragment step4 = RelapseStep4Fragment.newInstance();
+                                stopAlarm();
+                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step4).commit();
+                                break;
+                            case 4:
+                                stopAlarm();
+                                break;
+                        }
+                }});
+        dlgAlert.setCancelable(true);
         dlgAlert.create().show();    }
 
     //Starts the alarm sound
     private void startAlarm(){
-        ringtone.play();
+        // AudioManager is used to increase volume to max if "soundOn" is true.
+        if(StartMenu.soundOn) {
+            soundIsPlaying = true;
+
+            AudioManager audio = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
+
+            // Store previous volume.
+            currentVolume = audio.getStreamVolume(AudioManager.STREAM_RING);
+
+            int max = audio.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION);
+            audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            audio.setStreamVolume(AudioManager.STREAM_RING, max, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+
+            ringtone.play();
+        }
     }
 
     //Stops the alarm sound
     public void stopAlarm(){
-        ringtone.stop();
+        if(soundIsPlaying) {
+            soundIsPlaying = false;
+            AudioManager audio = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
+
+            audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            audio.setStreamVolume(AudioManager.STREAM_RING, currentVolume, AudioManager.ADJUST_SAME);
+
+            ringtone.stop();
+        }
     }
 
     public void setTimer(int _countDown) {
@@ -174,7 +225,7 @@ public class BlueClockFragment extends Fragment {
     public void onStop(){
         super.onStop();
 
-        ringtone.stop();
+        stopAlarm();
     }
 
     @Override
@@ -182,9 +233,10 @@ public class BlueClockFragment extends Fragment {
         super.onDetach();
 
         clockTimer.cancel();
-        ringtone.stop();
+        stopAlarm();
     }
-    public void linkButton(Button btn) {
+    public void linkButton(Button btn, int step) {
+        currentStep = step;
         btnLink = btn;
     }
 
