@@ -36,6 +36,8 @@ public class RelapseStep3Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.relapse_step3_fragment, container, false);
+        ((RelapseProcessActivity) getActivity()).canProceed = false;
+
         Button btn = (Button) v.findViewById(R.id.btn_to_step4);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +45,6 @@ public class RelapseStep3Fragment extends Fragment {
 
                 //If the timer has run out, we can proceed
                 if(((RelapseProcessActivity)getActivity()).canProceed == true) {
-                    ((RelapseProcessActivity) getActivity()).canProceed = false;
                     goToStep4();
                 }
             }

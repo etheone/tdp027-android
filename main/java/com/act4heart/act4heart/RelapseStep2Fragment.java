@@ -35,14 +35,15 @@ public class RelapseStep2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.relapse_step2_fragment, container, false);
+        ((RelapseProcessActivity) getActivity()).canProceed = false;
+
         Button btn = (Button) v.findViewById(R.id.btn_to_step3);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //If the timer has run out, we can proceed
                 if(((RelapseProcessActivity)getActivity()).canProceed == true) {
-                    ((RelapseProcessActivity) getActivity()).canProceed = false;
-                    //BEHÖVS INTE LÄNGRE goToStep3();
+                    goToStep3();
                 }
             }
         });
@@ -60,11 +61,11 @@ public class RelapseStep2Fragment extends Fragment {
         return v;
     }
 
-/*    public void goToStep3() {
+    public void goToStep3() {
         RelapseStep3Fragment step3 = RelapseStep3Fragment.newInstance();
         clock.stopAlarm();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step3).commit();
-    }*/
+    }
 
     @Override
     public void onDetach(){

@@ -78,7 +78,7 @@ public class EmergencyCallHandler {
 
         // Changes the imageViev for the phone when phone call is done.
         protected void onPostExecute(Void result) {
-            imageViewToChange.setImageResource(R.drawable.phone_example);
+            imageViewToChange.setImageResource(R.drawable.callbutton);
         }
     }
 

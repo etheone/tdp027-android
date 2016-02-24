@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.act4heart.act4heart.RelapseLastPageFragment"
-    android:background="#ee4a4f">
+    tools:context="com.act4heart.act4heart.RelapseLastPageFragment">
 
 
     <TextView
@@ -16,7 +15,8 @@
         android:layout_marginTop="87dp"
         android:textSize="27dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:maxWidth="300dp" />
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -125,4 +125,23 @@
         android:layout_alignParentStart="true"
         android:textSize="24dp"
         android:layout_marginLeft="10dp" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/phone_icon"
+        android:background="@drawable/callbutton"
+        android:layout_below="@+id/information"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start > Akutsituation > Återfallsprocessen 4/4 > Besvären kvarstår"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/phone_icon"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -2,8 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.act4heart.act4heart.RelapseStep4Fragment"
-    android:background="#ee4a4f">
+    tools:context="com.act4heart.act4heart.RelapseStep4Fragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,8 +49,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Jag är en till knapp"
-        android:id="@+id/temporary_btn2"
+        android:text="Jag känner inga besvär"
+        android:id="@+id/notHurtingButton"
         android:layout_gravity="right|center_vertical"
         android:background="@drawable/standard_button"
         android:layout_below="@+id/stillHurting"

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 /**
@@ -16,8 +18,7 @@ import android.widget.Button;
  */
 public class RelapseStep1Fragment extends Fragment {
 
-    private BlueClockFragment clock;
-
+    private ImageView phoneIcon;
     public RelapseStep1Fragment() {
         // Required empty public constructor
     }
@@ -46,20 +47,18 @@ public class RelapseStep1Fragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //If the timer has run out, we can proceed
-                if(((RelapseProcessActivity)getActivity()).canProceed == true) {
-                    ((RelapseProcessActivity)getActivity()).canProceed = false;
-                    goToStep2();
-                }
+                goToStep2();
             }
         });
 
-        // Activate blue clock.
-        clock = BlueClockFragment.newInstance();
-        clock.setTimer(5);
-        clock.linkButton(btn, 1);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step1, clock).commit();
+        phoneIcon = (ImageView)v.findViewById(R.id.phone_icon);
+        phoneIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeCall();
+            }
+        });
+
 
         //Saves the first timestamp for this emergency
         ((RelapseProcessActivity)this.getActivity()).redClock.saveStartTime();
@@ -68,15 +67,19 @@ public class RelapseStep1Fragment extends Fragment {
         return v;
     }
 
+    private void makeCall() {
+        phoneIcon = (ImageView)getActivity().findViewById(R.id.phone_icon);
+        EmergencyCallHandler emergencyCallHandler = new EmergencyCallHandler(phoneIcon, (RelapseProcessActivity)getActivity());
+        emergencyCallHandler.emergencyCall("0739474140");
+    }
+
     public void goToStep2() {
         RelapseStep2Fragment step2 = RelapseStep2Fragment.newInstance();
-        clock.stopAlarm();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step2).commit();
     }
 
     @Override
     public void onDetach(){
         super.onDetach();
-        getActivity().getSupportFragmentManager().beginTransaction().remove(clock);
     }
 }

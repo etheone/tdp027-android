@@ -36,6 +36,7 @@ public class RelapseStep4Fragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.relapse_step4_fragment, container, false);
+        ((RelapseProcessActivity) getActivity()).canProceed = false;
 
         Button btn = (Button) view.findViewById(R.id.stillHurting);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -44,8 +45,19 @@ public class RelapseStep4Fragment extends Fragment {
 
                 //If the timer has run out, we can proceed
                 if(((RelapseProcessActivity)getActivity()).canProceed == true) {
-                    ((RelapseProcessActivity) getActivity()).canProceed = false;
                     goToLastStep();
+                }
+            }
+        });
+
+        Button btnNotHurting = (Button) view.findViewById(R.id.notHurtingButton);
+        btnNotHurting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //If the timer has run out, we can proceed
+                if(((RelapseProcessActivity)getActivity()).canProceed == true) {
+                    goToEmergencyGoneStep();
                 }
             }
         });
@@ -66,6 +78,12 @@ public class RelapseStep4Fragment extends Fragment {
         RelapseLastPageFragment lastStep = RelapseLastPageFragment.newInstance();
         clock.stopAlarm();
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, lastStep).commit();
+    }
+
+    public void goToEmergencyGoneStep() {
+        RelapseEmergencyGoneFragment emergencyGoneStep = RelapseEmergencyGoneFragment.newInstance();
+        clock.stopAlarm();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, emergencyGoneStep).commit();
     }
 
     @Override
