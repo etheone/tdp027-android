@@ -61,7 +61,7 @@ public class FirstTimeActivity extends AppCompatActivity {
     private void makeCall() {
         phoneIcon = (ImageView)findViewById(R.id.phone_icon);
         EmergencyCallHandler emergencyCallHandler = new EmergencyCallHandler(phoneIcon, this);
-        emergencyCallHandler.emergencyCall("0708565661");
+        emergencyCallHandler.emergencyCall("0739474140");
     }
 
     @Override
