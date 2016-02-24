@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,8 @@ public class StartMenu extends AppCompatActivity{
 
     public static boolean soundOn = true;
     public static SharedPreferences prefs;
+
+    private Menu thisMenu = null;
 
 
     @Override
@@ -62,14 +65,19 @@ public class StartMenu extends AppCompatActivity{
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_menu, menu);
 
-        if(soundOn) {
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
-        }
-        else{
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_off);
-        }
+        thisMenu = menu;
+        fixSoundIcon();
 
         return true;
+    }
+
+    private void fixSoundIcon(){
+        if(soundOn) {
+            ((MenuItem)thisMenu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
+        }
+        else{
+            ((MenuItem)thisMenu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_off);
+        }
     }
 
     @Override
@@ -98,4 +106,13 @@ public class StartMenu extends AppCompatActivity{
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if (thisMenu != null) {
+            fixSoundIcon();
+        }
+    }
+
 }

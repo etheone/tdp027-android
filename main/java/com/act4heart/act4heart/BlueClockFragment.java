@@ -194,7 +194,8 @@ public class BlueClockFragment extends Fragment {
             AudioManager audio = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
 
             audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-            audio.setStreamVolume(AudioManager.STREAM_RING, currentVolume, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+            audio.setStreamVolume(AudioManager.STREAM_RING, currentVolume, AudioManager.ADJUST_SAME);
+
             ringtone.stop();
         }
     }
