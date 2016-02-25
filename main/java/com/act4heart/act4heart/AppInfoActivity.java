@@ -1,64 +1,21 @@
 package com.act4heart.act4heart;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-public class InformationActivity extends AppCompatActivity {
+public class AppInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.information_activity);
+        setContentView(R.layout.app_info_activity);
 
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
-
-        Button btnStartGuide = (Button) findViewById(R.id.btn_guide);
-        btnStartGuide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startGuideActivity();
-            }
-        });
-
-        Button btnHeartFailureInfo = (Button) findViewById(R.id.btn_heart_failure_info);
-        btnHeartFailureInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                heartFailureInfoActivity();
-            }
-        });
-
-        Button btnAppInfo = (Button) findViewById(R.id.btn_app_info);
-        btnAppInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AppInfoActivity();
-            }
-        });
-    }
-
-
-    private void AppInfoActivity(){
-        Intent appInfoIntent = new Intent(this, AppInfoActivity.class);
-        startActivity(appInfoIntent);
-    }
-
-    private void heartFailureInfoActivity(){
-        Intent startHeartFailureInfo = new Intent(this, HeartFailureInfoActivity.class);
-        startActivity(startHeartFailureInfo);
-    }
-
-    private void startGuideActivity(){
-        Intent startGuide = new Intent(this, GuideActivity.class);
-        startActivity(startGuide);
     }
 
     @Override
@@ -104,3 +61,4 @@ public class InformationActivity extends AppCompatActivity {
     }
 
 }
+
