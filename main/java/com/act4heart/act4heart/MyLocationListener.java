@@ -16,6 +16,7 @@ import java.util.Locale;
 
 public class MyLocationListener implements LocationListener {
 
+    private boolean isTerminated;
 
     private Context context;
 
@@ -27,9 +28,7 @@ public class MyLocationListener implements LocationListener {
 
         //Save the link to the text we want to change
         locationText = _locationText;
-        locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
+        startService();
     }
 
     //When called, we update the textview in the view that wants a streetname.
@@ -60,6 +59,23 @@ public class MyLocationListener implements LocationListener {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void terminateService(){
+        locationManager.removeUpdates(this);
+        isTerminated = true;
+    }
+
+    public void startService(){
+        locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
+
+        isTerminated = false;
+    }
+
+    public boolean isTerminated(){
+        return isTerminated;
     }
 
     @Override

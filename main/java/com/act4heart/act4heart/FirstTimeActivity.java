@@ -33,6 +33,8 @@ public class FirstTimeActivity extends AppCompatActivity {
     //private boolean isCallingEmergancy;
     ImageView phoneIcon;
 
+    private MyLocationListener myLocationListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,7 @@ public class FirstTimeActivity extends AppCompatActivity {
         });
 
         TextView positionText = (TextView) findViewById(R.id.positionText2);
-        MyLocationListener myLocationListener = new MyLocationListener(getApplicationContext(), positionText);
+        myLocationListener = new MyLocationListener(getApplicationContext(), positionText);
 
         //getActionBar().setIcon(R.drawable.ic_volume_up);
 
@@ -122,7 +124,18 @@ public class FirstTimeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //If we are leaving the activity we must destroy the location listener.
+    public void onStop(){
+        super.onStop();
+        myLocationListener.terminateService();
+    }
 
-
+    //If the service is not running, we must restart it here
+    public void onResume(){
+        super.onResume();
+        if(myLocationListener.isTerminated()){
+            myLocationListener.startService();
+        }
+    }
 
 }

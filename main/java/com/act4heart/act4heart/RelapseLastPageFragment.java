@@ -5,6 +5,7 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import org.w3c.dom.Text;
 public class RelapseLastPageFragment extends Fragment {
     private View view;
     private ImageView phoneIcon;
+
+    private MyLocationListener myLocationListener;
 
     public RelapseLastPageFragment() {
         // Required empty public constructor
@@ -40,7 +43,7 @@ public class RelapseLastPageFragment extends Fragment {
         view = inflater.inflate(R.layout.relapse_last_page_fragment, container, false);
         TextView positionText = (TextView) view.findViewById(R.id.positionText);
 
-        MyLocationListener myLocationListener = new MyLocationListener(this.getContext(),positionText);
+        myLocationListener = new MyLocationListener(this.getContext(),positionText);
 
         TextView startTimeStamp = (TextView) view.findViewById(R.id.activityStartText);
         startTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).redClock.getSavedHHmmByKey("Start"));
@@ -85,6 +88,20 @@ public class RelapseLastPageFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    //If we are leaving the activity we must destroy the location listener.
+    public void onStop(){
+        super.onStop();
+        myLocationListener.terminateService();
+    }
+
+    //If the service is not running, we must restart it here
+    public void onResume(){
+        super.onResume();
+        if(myLocationListener.isTerminated()){
+            myLocationListener.startService();
+        }
     }
 
 }
