@@ -19,7 +19,6 @@ import android.widget.TextView;
 public class RelapseStep1Fragment extends Fragment {
 
     private ImageView phoneIcon;
-    private boolean isCallingEmergancy;
     public RelapseStep1Fragment() {
         // Required empty public constructor
     }
@@ -52,19 +51,18 @@ public class RelapseStep1Fragment extends Fragment {
             }
         });
 
-        isCallingEmergancy = false;
 
         phoneIcon = (ImageView)v.findViewById(R.id.phone_icon);
         phoneIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isCallingEmergancy) {
+                if (EmergencyCallHandler.isCallingEmergency) {
                     // End emergency call.
                     EmergencyCallHandler.endOngoingCall(getContext());
-                    isCallingEmergancy = false;
+                    EmergencyCallHandler.isCallingEmergency= false;
 
                 } else {
-                    isCallingEmergancy = true;
+                    EmergencyCallHandler.isCallingEmergency= true;
                     makeCall();
                 }
             }

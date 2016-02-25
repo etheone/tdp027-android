@@ -30,7 +30,7 @@ import com.android.internal.telephony.*;
 public class FirstTimeActivity extends AppCompatActivity {
 
     private int id;
-    private boolean isCallingEmergancy;
+    //private boolean isCallingEmergancy;
     ImageView phoneIcon;
 
     @Override
@@ -42,7 +42,7 @@ public class FirstTimeActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
 
-        isCallingEmergancy = false;
+
 
         TextView tv = (TextView) findViewById(R.id.ambulans_text);
         tv.setText(Html.fromHtml(getString(R.string.ambulans)));
@@ -55,13 +55,13 @@ public class FirstTimeActivity extends AppCompatActivity {
         phoneIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isCallingEmergancy) {
+                if (EmergencyCallHandler.isCallingEmergency) {
                     // End emergency call.
                     EmergencyCallHandler.endOngoingCall(getApplicationContext());
-                    isCallingEmergancy = false;
+                    EmergencyCallHandler.isCallingEmergency = false;
 
                 } else {
-                    isCallingEmergancy = true;
+                    EmergencyCallHandler.isCallingEmergency= true;
                     makeCall();
                 }
             }

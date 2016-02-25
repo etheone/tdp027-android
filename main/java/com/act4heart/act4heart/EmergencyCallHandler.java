@@ -26,6 +26,8 @@ public class EmergencyCallHandler {
     private int callerID;
     private AppCompatActivity callerActivity;
 
+    public static boolean isCallingEmergency = false;
+
     public EmergencyCallHandler(ImageView view, AppCompatActivity caller){
         this.callerActivity = caller;
         imageViewToChange = view;
@@ -43,7 +45,7 @@ public class EmergencyCallHandler {
                 public void run() {
                     ActivityManager activityManager = (ActivityManager) callerActivity.getSystemService(Context.ACTIVITY_SERVICE);
                     activityManager.moveTaskToFront(callerID, 0);
-                    imageViewToChange.setImageResource(R.drawable.phone_example2);
+                    imageViewToChange.setImageResource(R.drawable.call_button_red);
                 }
             };
             Handler h = new Handler();
@@ -110,6 +112,7 @@ public class EmergencyCallHandler {
         // Changes the imageViev for the phone when phone call is done.
         protected void onPostExecute(Void result) {
             imageViewToChange.setImageResource(R.drawable.callbutton);
+            isCallingEmergency = false;
         }
     }
 

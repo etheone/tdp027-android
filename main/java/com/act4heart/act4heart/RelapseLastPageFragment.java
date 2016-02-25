@@ -17,7 +17,7 @@ import org.w3c.dom.Text;
 public class RelapseLastPageFragment extends Fragment {
     private View view;
     private ImageView phoneIcon;
-    private boolean isCallingEmergency;
+
     public RelapseLastPageFragment() {
         // Required empty public constructor
     }
@@ -48,19 +48,19 @@ public class RelapseLastPageFragment extends Fragment {
         TextView lastTimeStamp = (TextView) view.findViewById(R.id.lastNitroText);
         lastTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).redClock.getSavedHHmmByKey("Fourth"));
 
-        isCallingEmergency = false;
+
         //Makes phonebutton clickable
         phoneIcon = (ImageView)view.findViewById(R.id.phone_icon);
         phoneIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isCallingEmergency) {
+                if (EmergencyCallHandler.isCallingEmergency) {
                     // End emergency call.
                     EmergencyCallHandler.endOngoingCall(getContext());
-                    isCallingEmergency = false;
+                    EmergencyCallHandler.isCallingEmergency = false;
 
                 } else {
-                    isCallingEmergency = true;
+                    EmergencyCallHandler.isCallingEmergency = true;
                     makeCall();
                 }
             }
