@@ -1,10 +1,13 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.HeartGame;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.StartMenu;
 
 public class HeartGameActivity extends AppCompatActivity {
 
@@ -16,6 +19,10 @@ public class HeartGameActivity extends AppCompatActivity {
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
+
+        //Starting gameprofile fragment
+        HeartGameProfileFragment heartGameProfileFragment = HeartGameProfileFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.game_fragment_container, heartGameProfileFragment).commit();
     }
 
     @Override

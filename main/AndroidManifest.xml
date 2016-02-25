@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".EmergencySituationActivity" />
         <activity android:name=".RelapseProcessActivity" />
-        <activity android:name=".HeartGameActivity" />
+        <activity android:name=".HeartGame.HeartGameActivity" />
         <activity android:name=".FirstTimeActivity" />
         <activity
             android:name=".HistoryActivity"
