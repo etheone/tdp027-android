@@ -27,7 +27,7 @@ public class BlueClockFragment extends Fragment {
     private int countDown;
     private Ringtone ringtone;
     private Button btnLink = null;
-    private String dialogMessage = "5 minuter har gått. Gå vidare till nästa sida!";
+    private String dialogMessage = "5 minuter har gått. Tryck OK för att gå vidare till nästa steg";
 
     // Sound variables
     private int currentVolume;
@@ -140,7 +140,7 @@ public class BlueClockFragment extends Fragment {
         // Disappear when the button is pressed.
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getActivity());
         dlgAlert.setMessage(dialogMessage);
-        dlgAlert.setTitle("5 minuter har gått!");
+        dlgAlert.setTitle("Ta en Nitroglycerin");
         dlgAlert.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
