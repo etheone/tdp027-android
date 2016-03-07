@@ -111,14 +111,21 @@ public class RelapseProcessActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //Change to startMenu Activity
-                        Intent startMenu = new Intent(getApplicationContext(), StartMenu.class);
-                        startActivity(startMenu);
+                        //Intent startMenu = new Intent(getApplicationContext(), StartMenu.class);
+                        //startActivity(startMenu);
+                        endRelapseProcess();
+                        
 
                     }
                 });
         dlgAlert.setNegativeButton("Nej", null);
         dlgAlert.setCancelable(true);
-        dlgAlert.create().show();    }
+        dlgAlert.create().show();
+    }
+
+    private void endRelapseProcess() {
+        finish();
+    }
 
 
 }

@@ -33,7 +33,8 @@
         <activity android:name=".InformationActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".HeartFailureInfoActivity" />
-        <activity android:name=".AppInfoActivity"></activity>
+        <activity android:name=".AppInfoActivity" />
+        <activity android:name=".SymptonsInfoActivity"></activity>
     </application>
 
 </manifest>

@@ -20,15 +20,8 @@ public class InformationActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
 
-        Button btnStartGuide = (Button) findViewById(R.id.btn_guide);
-        btnStartGuide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startGuideActivity();
-            }
-        });
 
-        Button btnHeartFailureInfo = (Button) findViewById(R.id.btn_heart_failure_info);
+        Button btnHeartFailureInfo = (Button) findViewById(R.id.btn_about_heart_failure);
         btnHeartFailureInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,13 +29,30 @@ public class InformationActivity extends AppCompatActivity {
             }
         });
 
-        Button btnAppInfo = (Button) findViewById(R.id.btn_app_info);
+        Button btnSymponsInfo = (Button) findViewById(R.id.btn_symptons_info);
+        btnSymponsInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startSymptonsInfoActivity();
+            }
+        });
+
+        Button btnAppInfo = (Button) findViewById(R.id.btn_about_app);
         btnAppInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppInfoActivity();
             }
         });
+
+        Button btnHistory = (Button) findViewById(R.id.btn_history);
+        btnHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startHistoryActivity();
+            }
+        });
+
     }
 
 
@@ -56,9 +66,13 @@ public class InformationActivity extends AppCompatActivity {
         startActivity(startHeartFailureInfo);
     }
 
-    private void startGuideActivity(){
-        Intent startGuide = new Intent(this, GuideActivity.class);
-        startActivity(startGuide);
+    private void startSymptonsInfoActivity(){
+
+    }
+
+    void startHistoryActivity() {
+        Intent history = new Intent(this, HistoryActivity.class);
+        startActivity(history);
     }
 
     @Override

@@ -43,14 +43,17 @@ public class StartMenu extends AppCompatActivity{
             }
         });
 
-        Button btnStartGame = (Button) findViewById(R.id.btn_game);
+       /* Button btnStartGame = (Button) findViewById(R.id.btn_game);
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startGameActivity();
             }
         });
+        */
 
+
+        /*
         Button btnHistory = (Button) findViewById(R.id.btn_history);
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,7 @@ public class StartMenu extends AppCompatActivity{
                 startHistoryActivity();
             }
         });
+        */
 
         Button btnInfo = (Button) findViewById(R.id.btn_info);
         btnInfo.setOnClickListener(new View.OnClickListener() {
@@ -78,10 +82,7 @@ public class StartMenu extends AppCompatActivity{
         startActivity(game);
     }
 
-    void startHistoryActivity() {
-        Intent history = new Intent(this, HistoryActivity.class);
-        startActivity(history);
-    }
+
 
     private void startInfoActivity(){
         Intent info = new Intent(this, InformationActivity.class);

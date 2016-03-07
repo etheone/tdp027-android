@@ -23,11 +23,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Startsida > Information"
+            android:text="Startsida > Övrigt"
             android:paddingLeft="10dp"
             android:id="@+id/textView16" />
 
+        <!-- denna sysns inte i nuläget -->
         <EditText
+
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/search_edit_text"
@@ -41,13 +43,14 @@
             android:singleLine="true"
             android:layout_below="@+id/textView16"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp" />
+            android:layout_marginTop="5dp"
+            android:visibility="invisible"/>
 
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Guidad rundtur"
-            android:id="@+id/btn_guide"
+            android:text="Om hjärtinfarkt"
+            android:id="@+id/btn_about_heart_failure"
             android:background="@drawable/standard_button"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -56,24 +59,32 @@
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Vad är hjärtinfarkt?"
-            android:id="@+id/btn_heart_failure_info"
+            android:text="Sympton"
+            android:id="@+id/btn_symptons_info"
             android:background="@drawable/standard_button"
-            android:layout_below="@+id/btn_guide"
-            android:layout_alignLeft="@+id/btn_guide"
-            android:layout_alignStart="@+id/btn_guide"
-            android:layout_marginTop="71dp" />
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Varför denna app?"
-            android:id="@+id/btn_app_info"
+            android:text="Om appen"
+            android:id="@+id/btn_about_app"
             android:background="@drawable/standard_button"
-            android:layout_below="@+id/btn_heart_failure_info"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="62dp" />
+            android:layout_marginTop="29dp"
+            android:layout_below="@+id/btn_symptons_info"
+            android:layout_alignLeft="@+id/btn_symptons_info"
+            android:layout_alignStart="@+id/btn_symptons_info" />
 
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Historik"
+            android:id="@+id/btn_history"
+            android:background="@drawable/standard_button"
+            android:layout_below="@+id/btn_about_app"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="37dp" />
 
 
     </RelativeLayout>
