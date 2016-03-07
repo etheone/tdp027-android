@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Symptoms.SymptomsActivity"
+    android:background="@drawable/act4heartbg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Symptom"
+        android:id="@+id/textView19"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textSize="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2"
+        android:layout_below="@+id/textView19"
+        android:layout_centerHorizontal="true"
+        android:fillViewport="false"
+        android:layout_marginBottom="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textView20"
+                android:text="Upplever du något av följande symptom?"
+                android:layout_marginTop="10dp"
+                android:textSize="23dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Symptom 1 \nSymptom 2\nSymptom 3"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/textView20"
+                android:id="@+id/textView21"
+                android:textSize="23dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jag känner något av besvären"
+                android:id="@+id/worst_symptoms_btn"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_below="@+id/textView21"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/standard_button"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/textView22"
+                android:text="Upplever du något av följande symptom?"
+                android:layout_below="@+id/worst_symptoms_btn"
+                android:layout_marginTop="10dp"
+                android:textSize="23dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Symptom 1 \nSymptom 2\nSymptom 3"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/textView22"
+                android:id="@+id/textView23"
+                android:textSize="23dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jag känner något av besvären"
+                android:id="@+id/bad_symptom_btn"
+                android:layout_below="@+id/textView23"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/standard_button"
+                android:layout_marginTop="20dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jag känner inget av besvären"
+                android:id="@+id/no_symptom_btn"
+                android:layout_below="@+id/bad_symptom_btn"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/standard_button"
+                android:layout_marginTop="20dp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.act4heart.act4heart">
+    package="com.act4heart.act4heart" >
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -12,10 +12,10 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".StartMenu"
-            android:label="@string/app_name">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
         <activity android:name=".EmergencySituationActivity" />
         <activity android:name=".RelapseProcessActivity" />
         <activity android:name=".HeartGame.HeartGameActivity" />
-        <activity android:name=".FirstTimeActivity" />
+        <activity android:name=".Symptoms.SOSCallActivity" />
         <activity
             android:name=".HistoryActivity"
             android:label="@string/title_activity_history"
@@ -33,7 +33,16 @@
         <activity android:name=".InformationActivity" />
         <activity android:name=".GuideActivity" />
         <activity android:name=".HeartFailureInfoActivity" />
-        <activity android:name=".AppInfoActivity"></activity>
+        <activity android:name=".AppInfoActivity" />
+        <activity
+            android:name=".Symptoms.SymptomsActivity"
+            android:label="@string/title_activity_symptoms"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Symptoms.NoSymptomsActivity"
+            android:label="@string/title_activity_no_symptoms"
+            android:theme="@style/AppTheme" >
+        </activity>
     </application>
 
 </manifest>

@@ -31,32 +31,36 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Start > Akutsituation"
-                android:id="@+id/textView" />
+                android:text="Har du någon nitroglycerin?"
+                android:id="@+id/textView"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:textSize="23dp" />
 
 
 
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Första gången"
-            android:id="@+id/btn_emergency_call"
+            android:text="Ja"
+            android:id="@+id/btn_nitro"
             android:background="@drawable/standard_button"
-            android:layout_marginBottom="78dp"
-            android:layout_above="@+id/btn_start_relapse"
-            android:layout_alignLeft="@+id/btn_start_relapse"
-            android:layout_alignStart="@+id/btn_start_relapse" />
+            android:layout_below="@+id/textView"
+            android:layout_alignLeft="@+id/btn_no_nitro"
+            android:layout_alignStart="@+id/btn_no_nitro"
+            android:layout_marginTop="120dp" />
 
 
         <Button
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="Återfall"
-            android:id="@+id/btn_start_relapse"
+            android:text="Nej"
+            android:id="@+id/btn_no_nitro"
             android:background="@drawable/standard_button"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/btn_nitro"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="130dp" />
+            android:layout_marginTop="50dp" />
 
     </RelativeLayout>
 </LinearLayout>

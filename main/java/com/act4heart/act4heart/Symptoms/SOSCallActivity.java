@@ -1,33 +1,21 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.Symptoms;
 
-import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Handler;
-import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.telephony.TelephonyManager;
 import android.text.Html;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
+import com.act4heart.act4heart.EmergencyCallHandler;
+import com.act4heart.act4heart.MyLocationListener;
+import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.StartMenu;
 
-import com.android.internal.telephony.*;
-
-public class FirstTimeActivity extends AppCompatActivity {
+public class SOSCallActivity extends AppCompatActivity {
 
     private int id;
     //private boolean isCallingEmergancy;
@@ -38,18 +26,11 @@ public class FirstTimeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.first_time_activity);
+        setContentView(R.layout.sos_call_activity);
 
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
-
-
-
-        TextView tv = (TextView) findViewById(R.id.ambulans_text);
-        tv.setText(Html.fromHtml(getString(R.string.ambulans)));
-
-
 
         phoneIcon = (ImageView)findViewById(R.id.phone_icon);
 

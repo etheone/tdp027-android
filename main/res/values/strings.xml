@@ -11,4 +11,6 @@
  När en person drabbas av hjärtinfarkt för första gången är det akut att ringa 112 efter <u>ambulans!</u>
   ]]></string>
     <string name="title_activity_history">HistoryActivity</string>
+    <string name="title_activity_symptoms">Symptoms</string>
+    <string name="title_activity_no_symptoms">NoSymptomsActivity</string>
 </resources>

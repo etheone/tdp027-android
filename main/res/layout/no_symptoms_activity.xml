@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.act4heart.act4heart.Symptoms.NoSymptomsActivity"
+    android:background="@drawable/act4heartbg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingen av symptomerna"
+        android:id="@+id/textView24"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Är du helt säker på att du inte känner några av symptomen? &quot;PlaceHolder&quot;"
+        android:id="@+id/textView25"
+        android:layout_below="@+id/textView24"
+        android:layout_centerHorizontal="true"
+        android:textSize="23dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nej, ring"
+        android:id="@+id/go_to_call_btn"
+        android:layout_below="@+id/textView25"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/standard_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ja, menu"
+        android:id="@+id/go_back_btn"
+        android:layout_below="@+id/go_to_call_btn"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/standard_button"
+        android:layout_marginTop="30dp" />
+</RelativeLayout>
