@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.act4heart.act4heart.Symptoms.SOSCallActivity;
+
 public class EmergencySituationActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +22,7 @@ public class EmergencySituationActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
 
-        Button buttonStartRelapse = (Button) findViewById(R.id.btn_start_relapse);
+        Button buttonStartRelapse = (Button) findViewById(R.id.btn_nitro);
         buttonStartRelapse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,17 +30,17 @@ public class EmergencySituationActivity extends AppCompatActivity {
 
             }
         });
-        Button buttonEmergencyCall = (Button) findViewById(R.id.btn_emergency_call);
+        Button buttonEmergencyCall = (Button) findViewById(R.id.btn_no_nitro);
         buttonEmergencyCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startFirstTimeActivity();
+                startSOSCallActivity();
             }
         });
     }
 
-    private void startFirstTimeActivity(){
-        Intent intent = new Intent(this, FirstTimeActivity.class);
+    private void startSOSCallActivity(){
+        Intent intent = new Intent(this, SOSCallActivity.class);
         startActivity(intent);
     }
 

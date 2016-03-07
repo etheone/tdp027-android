@@ -1,11 +1,14 @@
 package com.act4heart.act4heart;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.act4heart.act4heart.Symptoms.SOSCallActivity;
 
 
 /**
@@ -45,7 +48,7 @@ public class RelapseStep4Fragment extends Fragment {
 
                 //If the timer has run out, we can proceed
                 if(((RelapseProcessActivity)getActivity()).canProceed == true) {
-                    goToLastStep();
+                    goToCallActivity();
                 }
             }
         });
@@ -63,7 +66,7 @@ public class RelapseStep4Fragment extends Fragment {
         });
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
-        clock.setTimer(30);
+        clock.setTimer(2);
         clock.setDialogText("Välj något av alternativen!");
         clock.linkButton(null, 4);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
@@ -74,10 +77,10 @@ public class RelapseStep4Fragment extends Fragment {
         return view;
     }
 
-    public void goToLastStep() {
-        RelapseLastPageFragment lastStep = RelapseLastPageFragment.newInstance();
+    public void goToCallActivity() {
         clock.stopAlarm();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, lastStep).commit();
+        Intent intent = new Intent(getContext(), SOSCallActivity.class);
+        startActivity(intent);
     }
 
     public void goToEmergencyGoneStep() {
