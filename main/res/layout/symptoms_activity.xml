@@ -1,115 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".Symptoms.SymptomsActivity"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/act4heartbg">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Symptom"
-        android:id="@+id/textView19"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar2"
+        android:background="@android:color/black"
+        android:titleTextColor="@android:color/white">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView2"
-        android:layout_below="@+id/textView19"
-        android:layout_centerHorizontal="true"
-        android:fillViewport="false"
-        android:layout_marginBottom="20dp">
+    </android.support.v7.widget.Toolbar>
 
-        <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        tools:context=".StartMenu">
+
+        <TextView
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:text="Kryssa i om du känner några av följande symptom: "
+            android:textSize="20dp"
+            android:id="@+id/textView20"
+            android:layout_gravity="center_horizontal" />
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/scrollView"
+            android:layout_weight="1"
+            android:fadeScrollbars="false" >
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/textView20"
-                android:text="Upplever du något av följande symptom?"
-                android:layout_marginTop="10dp"
-                android:textSize="23dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Symptom 1 \nSymptom 2\nSymptom 3"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/textView20"
-                android:id="@+id/textView21"
-                android:textSize="23dp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stark och ihållande bröstsmärta"
+                    android:id="@+id/checkBox1"
+                    android:layout_marginTop="10dp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jag känner något av besvären"
-                android:id="@+id/worst_symptoms_btn"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:layout_below="@+id/textView21"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/standard_button"
-                android:layout_marginTop="20dp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Obehagskänsla i bröstet"
+                    android:id="@+id/checkBox2"
+                    android:layout_marginTop="10dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/textView22"
-                android:text="Upplever du något av följande symptom?"
-                android:layout_below="@+id/worst_symptoms_btn"
-                android:layout_marginTop="10dp"
-                android:textSize="23dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strålande i halsen"
+                    android:id="@+id/checkBox3"
+                    android:layout_marginTop="10dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Symptom 1 \nSymptom 2\nSymptom 3"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/textView22"
-                android:id="@+id/textView23"
-                android:textSize="23dp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Käkarna eller skuldrorna värker"
+                    android:id="@+id/checkBox4"
+                    android:layout_marginTop="10dp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jag känner något av besvären"
-                android:id="@+id/bad_symptom_btn"
-                android:layout_below="@+id/textView23"
-                android:layout_centerHorizontal="true"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:background="@drawable/standard_button"
-                android:layout_marginTop="20dp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Illamående"
+                    android:id="@+id/checkBox5"
+                    android:layout_marginTop="10dp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jag känner inget av besvären"
-                android:id="@+id/no_symptom_btn"
-                android:layout_below="@+id/bad_symptom_btn"
-                android:layout_centerHorizontal="true"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:background="@drawable/standard_button"
-                android:layout_marginTop="20dp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Andnöd"
+                    android:id="@+id/checkBox6"
+                    android:layout_marginTop="10dp" />
 
-        </RelativeLayout>
-    </ScrollView>
 
-</RelativeLayout>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kallsvettningar"
+                    android:id="@+id/checkBox7"
+                    android:layout_marginTop="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rädsla och ångest"
+                    android:id="@+id/checkBox8"
+                    android:layout_marginTop="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Värk i ryggen"
+                    android:id="@+id/checkBox9"
+                    android:layout_marginTop="10dp" />
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hjärtklappning och yrsel"
+                    android:id="@+id/checkBox10"
+                    android:layout_marginTop="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New CheckBox"
+                    android:id="@+id/checkBox11"
+                    android:layout_marginTop="10dp" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New CheckBox"
+                    android:id="@+id/checkBox12"
+                    android:layout_marginTop="10dp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:id="@+id/btn_no_sympton"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/standard_button"
+                    android:text="Känner inga sympton"
+                    android:layout_marginTop="10dp"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Fortsätt"
+            android:id="@+id/btn_continue"
+            android:background="@drawable/standard_button"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp" />
+
+    </LinearLayout>
+</LinearLayout>
