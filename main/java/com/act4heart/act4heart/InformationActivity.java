@@ -29,14 +29,6 @@ public class InformationActivity extends AppCompatActivity {
             }
         });
 
-        Button btnSymponsInfo = (Button) findViewById(R.id.btn_symptons_info);
-        btnSymponsInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startSymptonsInfoActivity();
-            }
-        });
-
         Button btnAppInfo = (Button) findViewById(R.id.btn_about_app);
         btnAppInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,10 +56,6 @@ public class InformationActivity extends AppCompatActivity {
     private void heartFailureInfoActivity(){
         Intent startHeartFailureInfo = new Intent(this, HeartFailureInfoActivity.class);
         startActivity(startHeartFailureInfo);
-    }
-
-    private void startSymptonsInfoActivity(){
-
     }
 
     void startHistoryActivity() {
