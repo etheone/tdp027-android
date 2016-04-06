@@ -49,7 +49,7 @@ public class InformationActivity extends AppCompatActivity {
 
 
     private void AppInfoActivity(){
-        Intent appInfoIntent = new Intent(this, AppInfoActivity.class);
+        Intent appInfoIntent = new Intent(this, GuideActivity.class);
         startActivity(appInfoIntent);
     }
 
