@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -45,7 +46,13 @@ public class EmergencyCallHandler {
                 public void run() {
                     ActivityManager activityManager = (ActivityManager) callerActivity.getSystemService(Context.ACTIVITY_SERVICE);
                     activityManager.moveTaskToFront(callerID, 0);
-                    imageViewToChange.setImageResource(R.drawable.call_button_red);
+                    imageViewToChange.setImageResource(R.drawable.call_anim);
+
+                    AnimationDrawable ani = (AnimationDrawable) imageViewToChange.getDrawable();
+                    //if (ani != null) {
+                        ani.start();
+                    //}
+
                 }
             };
             Handler h = new Handler();

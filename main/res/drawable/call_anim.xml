@@ -1,0 +1,9 @@
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/call_animation2" android:oneshot="false" >
+
+    <item android:drawable="@drawable/red_call_btn01" android:duration="500" />
+    <item android:drawable="@drawable/red_call_btn02" android:duration="500" />
+    <item android:drawable="@drawable/red_call_btn03" android:duration="500" />
+    <item android:drawable="@drawable/red_call_btn04" android:duration="500" />
+</animation-list>
