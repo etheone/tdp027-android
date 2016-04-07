@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.act4heart.act4heart.EmergencySituationActivity;
 import com.act4heart.act4heart.R;
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
+import com.act4heart.act4heart.database.DBHandler;
 
 public class RelapseQuestionActivity extends AppCompatActivity {
 
@@ -42,11 +43,13 @@ public class RelapseQuestionActivity extends AppCompatActivity {
     }
 
     private void startSOSCallActivity(){
+        DBHandler.sendInfoToDB("SOSCallActivity", this);
         Intent intent = new Intent(this, SOSCallActivity.class);
         startActivity(intent);
     }
 
     private void startNitroQuestionActivity() {
+        DBHandler.sendInfoToDB("EmergencySituationActivity", this);
         Intent start_relapse_process = new Intent(this, EmergencySituationActivity.class);
         startActivity(start_relapse_process);
     }

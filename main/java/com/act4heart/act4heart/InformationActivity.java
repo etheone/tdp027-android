@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.act4heart.act4heart.database.DBHandler;
+
 public class InformationActivity extends AppCompatActivity {
 
     @Override
@@ -49,16 +51,19 @@ public class InformationActivity extends AppCompatActivity {
 
 
     private void AppInfoActivity(){
+        DBHandler.sendInfoToDB("GuideActivity", this);
         Intent appInfoIntent = new Intent(this, GuideActivity.class);
         startActivity(appInfoIntent);
     }
 
     private void heartFailureInfoActivity(){
+        DBHandler.sendInfoToDB("HeartFailureInfoActivity", this);
         Intent startHeartFailureInfo = new Intent(this, HeartFailureInfoActivity.class);
         startActivity(startHeartFailureInfo);
     }
 
     void startHistoryActivity() {
+        DBHandler.sendInfoToDB("HistoryActivity", this);
         Intent history = new Intent(this, HistoryActivity.class);
         startActivity(history);
     }

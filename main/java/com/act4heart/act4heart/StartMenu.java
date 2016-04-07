@@ -2,6 +2,7 @@ package com.act4heart.act4heart;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.act4heart.act4heart.HeartGame.HeartGameActivity;
+import com.act4heart.act4heart.database.DBHandler;
 import com.act4heart.act4heart.Symptoms.SymptomsActivity;
 
 public class StartMenu extends AppCompatActivity{
@@ -44,6 +46,10 @@ public class StartMenu extends AppCompatActivity{
             }
         });
 
+
+        // set the phone id in the static class DBHandler
+        DBHandler.setPhoneId(Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID));
+
        /* Button btnStartGame = (Button) findViewById(R.id.btn_game);
         btnStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +80,13 @@ public class StartMenu extends AppCompatActivity{
     }
 
     void startEmergencyActivity() {
+        DBHandler.sendInfoToDB("SymptomActivity", this);
         Intent emergency = new Intent(this, SymptomsActivity.class);
         startActivity(emergency);
     }
 
     void startGameActivity() {
+        DBHandler.sendInfoToDB("HeartGameActivity", this);
         Intent game = new Intent(this, HeartGameActivity.class);
         startActivity(game);
     }
@@ -86,6 +94,7 @@ public class StartMenu extends AppCompatActivity{
 
 
     private void startInfoActivity(){
+        DBHandler.sendInfoToDB("InformationActivity", this);
         Intent info = new Intent(this, InformationActivity.class);
         startActivity(info);
     }
@@ -132,6 +141,7 @@ public class StartMenu extends AppCompatActivity{
                 soundOn = true;
             }
             prefs.edit().putBoolean("soundOn", soundOn).commit();
+            //Toast.makeText(this, com.act4heart.act4heart.database.DBHandler.getPhoneId(), Toast.LENGTH_SHORT ).show();
             return true;
         }
         return super.onOptionsItemSelected(item);

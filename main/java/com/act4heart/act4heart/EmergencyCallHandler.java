@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.widget.ImageView;
 
+import com.act4heart.act4heart.database.DBHandler;
 import com.android.internal.telephony.ITelephony;
 
 import java.lang.reflect.InvocationTargetException;
@@ -38,6 +39,7 @@ public class EmergencyCallHandler {
     // pushes the original app to the foreground after 1 second
     public void emergencyCall(final String phoneNumber) {
         if (callerActivity.checkCallingOrSelfPermission("android.permission.CALL_PHONE") == PackageManager.PERMISSION_GRANTED) {
+            DBHandler.sendInfoToDB("DialingEmergencyCall", callerActivity);
             callerActivity.startActivity(new Intent(Intent.ACTION_CALL, Uri.fromParts("tel", phoneNumber, null)));
             callerID = callerActivity.getTaskId();
 

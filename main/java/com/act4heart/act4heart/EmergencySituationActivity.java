@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
+import com.act4heart.act4heart.database.DBHandler;
 
 public class EmergencySituationActivity extends AppCompatActivity {
 
@@ -40,11 +41,13 @@ public class EmergencySituationActivity extends AppCompatActivity {
     }
 
     private void startSOSCallActivity(){
+        DBHandler.sendInfoToDB("SOSCallActivity", this);
         Intent intent = new Intent(this, SOSCallActivity.class);
         startActivity(intent);
     }
 
     private void startRelapseActivity() {
+        DBHandler.sendInfoToDB("RelapseProcessActivity", this);
         Intent start_relapse_process = new Intent(this, RelapseProcessActivity.class);
         startActivity(start_relapse_process);
     }

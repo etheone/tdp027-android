@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
+import com.act4heart.act4heart.database.DBHandler;
 
 
 /**
@@ -79,6 +80,7 @@ public class RelapseStep4Fragment extends Fragment {
 
     public void goToCallActivity() {
         clock.stopAlarm();
+        DBHandler.sendInfoToDB("SOSCallActivity", getContext());
         Intent intent = new Intent(getContext(), SOSCallActivity.class);
         startActivity(intent);
     }
