@@ -28,8 +28,8 @@ public class DBHandler {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
         String url ="http://act4heart-act4heart.rhcloud.com/sendData?user=" + phoneId + "&path=" + activity + "&unixtime=" + System.currentTimeMillis()/1000L;
-        System.out.println(System.currentTimeMillis());
-        System.out.println(System.currentTimeMillis()/1000L);
+        //System.out.println(System.currentTimeMillis());
+        //System.out.println(System.currentTimeMillis()/1000L);
 
         // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
