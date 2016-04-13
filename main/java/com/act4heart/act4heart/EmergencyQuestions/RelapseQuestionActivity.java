@@ -1,6 +1,7 @@
 package com.act4heart.act4heart.EmergencyQuestions;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,11 @@ public class RelapseQuestionActivity extends AppCompatActivity {
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
+
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle("Akutsituation");
+        }
 
         Button buttonRelapse = (Button) findViewById(R.id.btn_relapse);
         buttonRelapse.setOnClickListener(new View.OnClickListener() {

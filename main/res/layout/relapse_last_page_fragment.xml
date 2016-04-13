@@ -10,13 +10,11 @@
         android:layout_height="wrap_content"
         android:text="Ring 112 efter ambulans direkt!"
         android:id="@+id/information"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="87dp"
+        android:layout_marginTop="51dp"
         android:textSize="27dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:maxWidth="300dp" />
+        android:maxWidth="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <RelativeLayout
         android:orientation="horizontal"
@@ -135,13 +133,4 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start > Akutsituation > Återfallsprocessen 4/4 > Besvären kvarstår"
-        android:id="@+id/textView4"
-        android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/phone_icon"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 </RelativeLayout>

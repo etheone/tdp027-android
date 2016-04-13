@@ -1,13 +1,19 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
     tools:context="com.act4heart.act4heart.BlueClockFragment"
     android:orientation="horizontal"
-    android:background="@android:color/holo_blue_dark">
+    android:background="@drawable/rounded_corner_layout">
 
     <!-- TODO: Update blank fragment layout -->
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,4 +54,7 @@
         android:textColor="#FFFFFF"
         android:layout_marginRight="5dp"
         android:textSize="30dp"/>
-</LinearLayout>
+
+        </LinearLayout>
+
+</RelativeLayout>
