@@ -48,9 +48,9 @@ public class RelapseStep4Fragment extends Fragment {
             public void onClick(View v) {
 
                 //If the timer has run out, we can proceed
-                if(((RelapseProcessActivity)getActivity()).canProceed == true) {
+               // if(((RelapseProcessActivity)getActivity()).canProceed == true) {
                     goToCallActivity();
-                }
+                //}
             }
         });
 
@@ -67,9 +67,9 @@ public class RelapseStep4Fragment extends Fragment {
         });
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
-        clock.setTimer(2);
-        clock.setDialogText("Välj något av alternativen!");
-        clock.linkButton(null, 4);
+        clock.setTimer(5);
+        clock.setDialogText(null);
+        clock.linkButton(btnNotHurting, 4);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
         ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Fourth", "");

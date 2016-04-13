@@ -27,7 +27,7 @@ public class BlueClockFragment extends Fragment {
     private int countDown;
     private Ringtone ringtone;
     private Button btnLink = null;
-    private String dialogMessage = "5 minuter har gått. Tryck OK för att gå vidare till nästa steg";
+    private String dialogMessage = "5 Minuter har gått!";
 
     // Sound variables
     private int currentVolume;
@@ -136,37 +136,41 @@ public class BlueClockFragment extends Fragment {
     }
     private void openAlert() {
 
-        // Create a dialog alert that tells user some information
-        // Disappear when the button is pressed.
-        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getActivity());
-        dlgAlert.setMessage(dialogMessage);
-        dlgAlert.setTitle("Ta en Nitroglycerin");
-        dlgAlert.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (currentStep) {
-                            case 1:
-                                RelapseStep2Fragment step2 = RelapseStep2Fragment.newInstance();
-                                stopAlarm();
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step2).commit();
-                                break;
-                            case 2:
-                                RelapseStep3Fragment step3 = RelapseStep3Fragment.newInstance();
-                                stopAlarm();
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step3).commit();
-                                break;
-                            case 3:
-                                RelapseStep4Fragment step4 = RelapseStep4Fragment.newInstance();
-                                stopAlarm();
-                                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step4).commit();
-                                break;
-                            case 4:
-                                stopAlarm();
-                                break;
+        if (dialogMessage != null) {
+            // Create a dialog alert that tells user some information
+            // Disappear when the button is pressed.
+            AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
+            dlgAlert.setMessage(dialogMessage);
+            dlgAlert.setTitle("Ta nästa dos nitroglycerin");
+            dlgAlert.setPositiveButton("Ok",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            switch (currentStep) {
+                                case 1:
+                                    RelapseStep2Fragment step2 = RelapseStep2Fragment.newInstance();
+                                    stopAlarm();
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step2).commit();
+                                    break;
+                                case 2:
+                                    RelapseStep3Fragment step3 = RelapseStep3Fragment.newInstance();
+                                    stopAlarm();
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step3).commit();
+                                    break;
+                                case 3:
+                                    RelapseStep4Fragment step4 = RelapseStep4Fragment.newInstance();
+                                    stopAlarm();
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step4).commit();
+                                    break;
+                                case 4:
+                                    stopAlarm();
+                                    break;
+                            }
                         }
-                }});
-        dlgAlert.setCancelable(true);
-        dlgAlert.create().show();    }
+                    });
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
+    }
 
     //Starts the alarm sound
     private void startAlarm(){
