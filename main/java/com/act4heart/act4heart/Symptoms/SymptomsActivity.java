@@ -161,10 +161,6 @@ public class SymptomsActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         if (id == R.id.action_sound) {
             if(StartMenu.soundOn) {
@@ -178,6 +174,13 @@ public class SymptomsActivity extends AppCompatActivity {
             StartMenu.prefs.edit().putBoolean("soundOn", StartMenu.soundOn).commit();
             return true;
         }
+
+        if (id == R.id.home_button) {
+            Intent homeAcitivity = new Intent(this, StartMenu.class);
+            homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(homeAcitivity);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
