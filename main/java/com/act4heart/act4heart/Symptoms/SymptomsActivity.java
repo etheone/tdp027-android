@@ -1,18 +1,23 @@
 package com.act4heart.act4heart.Symptoms;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.act4heart.act4heart.EmergencyQuestions.RelapseQuestionActivity;
@@ -23,6 +28,9 @@ import com.act4heart.act4heart.StartMenu;
 import java.util.ArrayList;
 
 public class SymptomsActivity extends AppCompatActivity {
+
+    private MyCustomCheckboxAdapter adapter;
+    private int checkCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +44,7 @@ public class SymptomsActivity extends AppCompatActivity {
                 continueFromSymptoms();
             }
         });
-        /*Button noSympton = (Button) findViewById(R.id.btn_no_sympton);
-        noSympton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startNoSymptoms();
-            }
-        });*/
+
 
         //Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
@@ -71,25 +73,51 @@ public class SymptomsActivity extends AppCompatActivity {
         symptomsList.add("Rädsla och ångest");
         symptomsList.add("Värk i ryggen");
         symptomsList.add("Hjärtklappning och yrsel");
-        symptomsList.add("Jag känner inga av dessa symtpom");
 
 
         final ListView listView = (ListView)findViewById(R.id.symptomsListView);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                if(symptomsList.size() - 1 == position) {
-                    startNoSymptoms();
-                }else {
-                    continueFromSymptoms();
-                }
-            }
-        });
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_selectable_list_item , symptomsList);
+        adapter = new MyCustomCheckboxAdapter(this, android.R.layout.simple_selectable_list_item , symptomsList);
         listView.setAdapter(adapter);
+    }
+
+    private class MyCustomCheckboxAdapter extends ArrayAdapter<String>{
+        private ArrayList<String> infoLines;
+        private Context context;
+
+        public MyCustomCheckboxAdapter(Context context, int textViewResourceId,
+                               ArrayList<String> infoLines) {
+            super(context, textViewResourceId, infoLines);
+            this.context = context;
+            this.infoLines = new ArrayList<String>();
+            this.infoLines.addAll(infoLines);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = ((Activity)context).getLayoutInflater();
+            convertView = inflater.inflate(R.layout.symptoms_checkbox_view, parent, false);
+
+            CheckBox cb = (CheckBox) convertView.findViewById(R.id.checkBox1);
+            cb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CheckBox checkBox = (CheckBox)v;
+                    if(checkBox.isChecked()) {
+                        checkCount++;
+                    } else{
+                        checkCount--;
+                    }
+                    System.out.println(checkCount);
+                }
+            });
+            cb.setText(infoLines.get(position));
+
+
+            return convertView;
+        }
+
     }
 
 
@@ -99,34 +127,14 @@ public class SymptomsActivity extends AppCompatActivity {
     }
 
     private void continueFromSymptoms() {
-      /*  ArrayList<CheckBox> checkBoxes = new ArrayList<CheckBox>();
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox1));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox2));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox3));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox4));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox5));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox6));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox7));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox8));
-        checkBoxes.add((CheckBox) findViewById(R.id.checkBox9));
 
-        boolean danger = false;
-        for (CheckBox checkBox : checkBoxes) {
-            if(checkBox.isChecked()){
-                danger = true;
-            }
-        }
-
-        if(danger) {
+        if(checkCount > 0) {
             Intent relapseQuestion = new Intent(this, RelapseQuestionActivity.class);
             startActivity(relapseQuestion);
         }
         else{
-            Intent noSymptomsActivity = new Intent(this, NoSymptomsActivity.class);
-            startActivity(noSymptomsActivity);
-        }*/
-        Intent relapseQuestion = new Intent(this, RelapseQuestionActivity.class);
-        startActivity(relapseQuestion);
+           startNoSymptoms();
+        }
     }
 
 
