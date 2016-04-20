@@ -31,6 +31,7 @@ public class SymptomsActivity extends AppCompatActivity {
 
     private MyCustomCheckboxAdapter adapter;
     private int checkCount = 0;
+    private boolean[] isChecked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,8 @@ public class SymptomsActivity extends AppCompatActivity {
         symptomsList.add("Värk i ryggen");
         symptomsList.add("Hjärtklappning och yrsel");
 
+        isChecked = new boolean[symptomsList.size()];
+
 
         final ListView listView = (ListView)findViewById(R.id.symptomsListView);
 
@@ -95,19 +98,23 @@ public class SymptomsActivity extends AppCompatActivity {
         }
 
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             convertView = inflater.inflate(R.layout.symptoms_checkbox_view, parent, false);
 
             CheckBox cb = (CheckBox) convertView.findViewById(R.id.checkBox1);
+            if (isChecked[position])
+                cb.setChecked(true);
             cb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     CheckBox checkBox = (CheckBox)v;
                     if(checkBox.isChecked()) {
                         checkCount++;
+                        isChecked[position] = true;
                     } else{
                         checkCount--;
+                        isChecked[position] = false;
                     }
                     System.out.println(checkCount);
                 }
