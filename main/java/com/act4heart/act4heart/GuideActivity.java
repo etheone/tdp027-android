@@ -51,7 +51,7 @@ public class GuideActivity extends AppCompatActivity {
         });
 
         currentImage = 0;
-        imageNames = new ArrayList<Integer>(){{add(R.drawable.pic1); add(R.drawable.pic2); add(R.drawable.pic3);}};
+        imageNames = new ArrayList<Integer>(){{add(R.drawable.startakut); add(R.drawable.hardunitro); add(R.drawable.gavidare); add(R.drawable.blaklocka); add(R.drawable.ring112); add(R.drawable.ardusaker);}};
         image = (ImageView) findViewById(R.id.pictureHolder);
 
         setImage();
