@@ -54,29 +54,42 @@ public class HeartFailureInfoActivity extends AppCompatActivity {
         listDataChild = new HashMap<String, List<String>>();
 
         // Adding child data
-        listDataHeader.add("Behandlingsprocessen");
-        listDataHeader.add("Vad händer i kroppen?");
-        listDataHeader.add("Ligger jag i riskzonen?");
-        listDataHeader.add("Vad säger forskningen?");
+        listDataHeader.add("Hjärtinfarkt");
+        listDataHeader.add("Vaga symptom kan också vara infarkt");
+        listDataHeader.add("Bröstsmärtor kan vara annat än infarkt");
 
         // Adding child data
         List<String> treatmentProcess = new ArrayList<String>();
-        treatmentProcess.add("Här testar vi att skriva en jätte lång radHär testar vi att skriva en jätte lång radHär testar vi att skriva en jätte lång radHär testar vi att skriva en jätte lång rad.");
-        treatmentProcess.add("List test");
+        treatmentProcess.add("En hjärtinfarkt beror oftast på att en blodpropp har bildats som helt"+
+                "eller delvis täpper till hjärtats kranskärl så att blodet inte kan passera som det"+
+                "brukar. Den del av hjärtat som skulle ha tagit emot blodet från det tilltäppta"+
+                "kärlet drabbas av syrebrist och hjärtmuskeln skadas." +
+                "\n\nVid en hjärtinfarkt kan en skada uppkomma som gör att hjärtat inte"+
+                "klarar att arbeta lika bra som innan. Hjärtinfarkt kan vara en livshotande"+
+                "sjukdom och kräver omedelbar sjukhusvård. Ju tidigare du får vård desto"+
+                "större är möjligheten att behandla och påverka hjärtinfarktens utveckling." +
+                "Om du misstänker att någon i din närhet fått en hjärtinfarkt, ring 112.");
 
         List<String> bodyInfo = new ArrayList<String>();
-        bodyInfo.add("kroppsinformation!");
+        bodyInfo.add("Om du är äldre eller har diabetes och får hjärtinfarkt, är det inte säkert "+
+                        "att du får ont i bröstet. Symtomen kan då vara diffusa, som andnöd eller "+
+                        "stark trötthet. Smärtan kan vara mindre intensiv och kan misstolkas som "+
+                        "mindre allvarlig.");
 
         List<String> riskZone = new ArrayList<String>();
-        riskZone.add("En massa risker!");
+        riskZone.add("Bröstsmärtor är en av de vanligaste anledningarna att söka akut sjukhusvård. "+
+                "Att du har ont i bröstet behöver inte betyda att du har ett hjärtproblem. De kan "+
+                "uppstå på grund av många andra orsaker, såsom:\n\n-Irritation av slemhinnan i "+
+                "nedre delen av matstrupen\n" +
+                "-Sjukdomar i magsäck och gallblåseväggen\n" +
+                "-Sjukdomar i lungan\n" +
+                "-Besvär i bröstkorgen eller överkroppens muskler\n" +
+                "-Infektioner.");
 
-        List<String> research = new ArrayList<String>();
-        research.add("Forskning!");
 
         listDataChild.put(listDataHeader.get(0), treatmentProcess); // Header, Child data
         listDataChild.put(listDataHeader.get(1), bodyInfo);
         listDataChild.put(listDataHeader.get(2), riskZone);
-        listDataChild.put(listDataHeader.get(3), research);
     }
 
     @Override
