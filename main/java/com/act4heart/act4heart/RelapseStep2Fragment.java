@@ -81,7 +81,9 @@ public class RelapseStep2Fragment extends Fragment {
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step2, clock).commit();
 
-        ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Second","");
+
+        //Saves the first timestamp for this emergency
+        ((RelapseProcessActivity)this.getActivity()).redClock.saveStartTime();
     }
 
     private void showFirstDialogMessage(){

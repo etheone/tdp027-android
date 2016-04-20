@@ -72,7 +72,7 @@ public class RelapseStep4Fragment extends Fragment {
         clock.linkButton(btnNotHurting, 4);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
-        ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Fourth", "");
+        ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Third", "");
 
         // Inflate the layout for this fragment
         return view;

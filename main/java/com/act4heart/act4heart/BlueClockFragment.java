@@ -187,7 +187,10 @@ public class BlueClockFragment extends Fragment {
             audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
             audio.setStreamVolume(AudioManager.STREAM_RING, max, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
 
-            ringtone.play();
+            //Makes sure we dont try to play a ringtone that does not exists
+            if(ringtone != null) {
+                ringtone.play();
+            }
         }
     }
 
@@ -200,7 +203,10 @@ public class BlueClockFragment extends Fragment {
             audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
             audio.setStreamVolume(AudioManager.STREAM_RING, currentVolume, AudioManager.ADJUST_SAME);
 
-            ringtone.stop();
+            //Makes sure we dont try to stop a ringtone that does not exists
+            if(ringtone != null) {
+                ringtone.stop();
+            }
         }
 
         clockTimer.cancel();
