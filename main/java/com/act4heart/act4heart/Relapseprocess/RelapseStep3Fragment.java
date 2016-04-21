@@ -1,4 +1,4 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.Relapseprocess;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.act4heart.act4heart.R;
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
 
 
@@ -38,45 +39,36 @@ public class RelapseStep3Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.relapse_step3_fragment, container, false);
+        View view = inflater.inflate(R.layout.relapse_step3_fragment, container, false);
         ((RelapseProcessActivity) getActivity()).canProceed = false;
 
-        Button btn = (Button) v.findViewById(R.id.btn_to_emergency_call3);
-        btn.setOnClickListener(new View.OnClickListener() {
+        //Take the user to the soscall activity
+        Button sosBtn = (Button) view.findViewById(R.id.btn_to_emergency_call3);
+        sosBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                /*If the timer has run out, we can proceed
-                if(((RelapseProcessActivity)getActivity()).canProceed == true) {
-                    goToStep4();
-                }*/
-
                 goToEmergencyCall();
             }
         });
 
-        // Activate blue clock.
+        // Activate blue clock and select which button you want to set to active(
+        //provide this with what step you want to move to)
         clock = BlueClockFragment.newInstance();
         clock.setTimer(5);
-        clock.linkButton(btn,3);
+        clock.linkButton(sosBtn,3);
 
+        //Puts a clock fragment for this relapsefragment into the clock_container.
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step3, clock).commit();
 
-        ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Second", "");
+        ((RelapseProcessActivity)this.getActivity()).timeStampHandler.saveNewVariable("Second", "");
 
         // Inflate the layout for this fragment
-        return v;
+        return view;
     }
 
     public void goToEmergencyCall(){
         Intent emergencyIntent = new Intent(getActivity(), SOSCallActivity.class);
         startActivity(emergencyIntent);
-    }
-
-    public void goToStep4() {
-        RelapseStep4Fragment step4 = RelapseStep4Fragment.newInstance();
-        clock.stopAlarm();
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step4).commit();
     }
 
     @Override

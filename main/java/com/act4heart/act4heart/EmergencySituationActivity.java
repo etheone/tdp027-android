@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.act4heart.act4heart.Relapseprocess.RelapseProcessActivity;
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
 import com.act4heart.act4heart.database.DBHandler;
 

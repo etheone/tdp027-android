@@ -1,4 +1,4 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.Relapseprocess;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.act4heart.act4heart.R;
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
 import com.act4heart.act4heart.database.DBHandler;
 
@@ -42,6 +43,7 @@ public class RelapseStep4Fragment extends Fragment {
         View view = inflater.inflate(R.layout.relapse_step4_fragment, container, false);
         ((RelapseProcessActivity) getActivity()).canProceed = false;
 
+        //Take the user to the soscall activity
         Button btn = (Button) view.findViewById(R.id.stillHurting);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +56,7 @@ public class RelapseStep4Fragment extends Fragment {
             }
         });
 
+        //If the user is feeling better we will open emergencygone fragment.
         Button btnNotHurting = (Button) view.findViewById(R.id.notHurtingButton);
         btnNotHurting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +75,7 @@ public class RelapseStep4Fragment extends Fragment {
         clock.linkButton(btnNotHurting, 4);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();
 
-        ((RelapseProcessActivity)this.getActivity()).redClock.saveNewVariable("Third", "");
+        ((RelapseProcessActivity)this.getActivity()).timeStampHandler.saveNewVariable("Third", "");
 
         // Inflate the layout for this fragment
         return view;
