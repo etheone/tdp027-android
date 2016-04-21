@@ -12,18 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.act4heart.act4heart.EmergencyQuestions.RelapseQuestionActivity;
-import com.act4heart.act4heart.EmergencySituationActivity;
+import com.act4heart.act4heart.MenuBarHandler;
 import com.act4heart.act4heart.R;
-import com.act4heart.act4heart.StartMenu;
 
 import java.util.ArrayList;
 
@@ -150,42 +146,18 @@ public class SymptomsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_menu, menu);
-
-        if(StartMenu.soundOn) {
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
-        }
-        else{
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_off);
-        }
+        MenuBarHandler.menubarSetup(menu);
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        boolean returnValue = MenuBarHandler.menuItemFunctionality(item);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        if (id == R.id.action_sound) {
-            if(StartMenu.soundOn) {
-                item.setIcon(R.drawable.ic_volume_off);
-                StartMenu.soundOn = false;
-            }
-            else{
-                item.setIcon(R.drawable.ic_volume_up);
-                StartMenu.soundOn = true;
-            }
-            StartMenu.prefs.edit().putBoolean("soundOn", StartMenu.soundOn).commit();
-            return true;
-        }
+        if(returnValue) return returnValue;
         return super.onOptionsItemSelected(item);
     }
+
 
 }
