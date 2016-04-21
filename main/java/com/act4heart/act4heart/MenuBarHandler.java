@@ -1,5 +1,7 @@
 package com.act4heart.act4heart;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,7 +19,7 @@ public class MenuBarHandler {
         }
     }
 
-    static public boolean menuItemFunctionality(MenuItem item){
+    static public boolean menuItemFunctionality(MenuItem item, Context context){
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -34,6 +36,12 @@ public class MenuBarHandler {
             }
             StartMenu.prefs.edit().putBoolean("soundOn", StartMenu.soundOn).commit();
             return true;
+        }
+
+        if (id == R.id.home_button) {
+            Intent homeAcitivity = new Intent(context, StartMenu.class);
+            homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(homeAcitivity);
         }
         return false;
     }

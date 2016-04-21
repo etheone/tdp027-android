@@ -153,7 +153,7 @@ public class SymptomsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        boolean returnValue = MenuBarHandler.menuItemFunctionality(item);
+        boolean returnValue = MenuBarHandler.menuItemFunctionality(item, this);
 
         if(returnValue) return returnValue;
         return super.onOptionsItemSelected(item);
