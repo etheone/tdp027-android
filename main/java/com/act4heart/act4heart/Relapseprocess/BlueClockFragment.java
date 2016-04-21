@@ -1,4 +1,4 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.Relapseprocess;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -16,10 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.act4heart.act4heart.Relapseprocess.RelapseProcessActivity;
-import com.act4heart.act4heart.Relapseprocess.RelapseStep2Fragment;
-import com.act4heart.act4heart.Relapseprocess.RelapseStep3Fragment;
-import com.act4heart.act4heart.Relapseprocess.RelapseStep4Fragment;
+import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.StartMenu;
 
 public class BlueClockFragment extends Fragment {
 
@@ -144,6 +142,7 @@ public class BlueClockFragment extends Fragment {
             AlertDialog.Builder dlgAlert = new AlertDialog.Builder(getActivity());
             dlgAlert.setMessage(dialogMessage);
             dlgAlert.setTitle("Ta nästa dos nitroglycerin");
+            dlgAlert.setCancelable(false);
             dlgAlert.setPositiveButton("Ok",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -169,7 +168,6 @@ public class BlueClockFragment extends Fragment {
                             }
                         }
                     });
-            dlgAlert.setCancelable(true);
             dlgAlert.create().show();
         }
     }

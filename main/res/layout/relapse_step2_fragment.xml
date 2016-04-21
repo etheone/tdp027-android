@@ -2,32 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.act4heart.act4heart.RelapseStep2Fragment">
+    tools:context=".Relapseprocess.RelapseStep2Fragment">
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_marginTop="54dp"
-        android:text="Ta en dos nitroglycerin nu direkt!
-När klockan sedan når 0, ta en ny dos nitroglycerin."
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:textSize="17dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:visibility="invisible"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left|center_vertical"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="140dp"
         android:id="@+id/clock_container_step2"
-        android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true"></LinearLayout>
 
     <TextView
@@ -38,9 +22,10 @@ När klockan sedan når 0, ta en ny dos nitroglycerin."
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:textSize="17dp"
-        android:layout_above="@+id/btn_to_emergency_call2"
+        android:layout_below="@+id/clock_container_step2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="79dp" />
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -51,18 +36,8 @@ När klockan sedan når 0, ta en ny dos nitroglycerin."
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
         android:background="@drawable/standard_button"
-        android:layout_above="@+id/clock_container2_step2"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
-        android:layout_marginBottom="20dp"
-        android:id="@+id/clock_container2_step2"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
