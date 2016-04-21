@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import com.act4heart.act4heart.EmergencySituationActivity;
 import com.act4heart.act4heart.R;
-import com.act4heart.act4heart.StartMenu;
+import com.act4heart.act4heart.StartMenuActivity;
 
 public class NoSymptomsActivity extends AppCompatActivity {
 
@@ -36,7 +36,7 @@ public class NoSymptomsActivity extends AppCompatActivity {
     }
 
     private void goToStartMenu() {
-        Intent emergency = new Intent(this, StartMenu.class);
+        Intent emergency = new Intent(this, StartMenuActivity.class);
         startActivity(emergency);
     }
 

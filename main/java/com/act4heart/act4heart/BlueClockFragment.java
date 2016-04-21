@@ -1,10 +1,8 @@
 package com.act4heart.act4heart;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -12,7 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -175,7 +172,7 @@ public class BlueClockFragment extends Fragment {
     //Starts the alarm sound
     private void startAlarm(){
         // AudioManager is used to increase volume to max if "soundOn" is true.
-        if(StartMenu.soundOn) {
+        if(StartMenuActivity.soundOn) {
             soundIsPlaying = true;
 
             AudioManager audio = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);

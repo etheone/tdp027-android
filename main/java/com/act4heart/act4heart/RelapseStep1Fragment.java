@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 
 /**
@@ -79,7 +78,7 @@ public class RelapseStep1Fragment extends Fragment {
     private void makeCall() {
         phoneIcon = (ImageView)getActivity().findViewById(R.id.phone_icon);
         EmergencyCallHandler emergencyCallHandler = new EmergencyCallHandler(phoneIcon, (RelapseProcessActivity)getActivity());
-        emergencyCallHandler.emergencyCall(StartMenu.EMERGENCY_PHONE_NUMBER);
+        emergencyCallHandler.emergencyCall(StartMenuActivity.EMERGENCY_PHONE_NUMBER);
     }
 
     public void goToStep2() {

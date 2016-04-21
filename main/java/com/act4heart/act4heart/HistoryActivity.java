@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -39,7 +38,7 @@ public class HistoryActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_menu, menu);
 
-        if(StartMenu.soundOn) {
+        if(StartMenuActivity.soundOn) {
             ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
         }
         else{
@@ -58,20 +57,20 @@ public class HistoryActivity extends AppCompatActivity {
 
 
         if (id == R.id.action_sound) {
-            if(StartMenu.soundOn) {
+            if(StartMenuActivity.soundOn) {
                 item.setIcon(R.drawable.ic_volume_off);
-                StartMenu.soundOn = false;
+                StartMenuActivity.soundOn = false;
             }
             else{
                 item.setIcon(R.drawable.ic_volume_up);
-                StartMenu.soundOn = true;
+                StartMenuActivity.soundOn = true;
             }
-            StartMenu.prefs.edit().putBoolean("soundOn", StartMenu.soundOn).commit();
+            StartMenuActivity.prefs.edit().putBoolean("soundOn", StartMenuActivity.soundOn).commit();
             return true;
         }
 
         if (id == R.id.home_button) {
-            Intent homeAcitivity = new Intent(this, StartMenu.class);
+            Intent homeAcitivity = new Intent(this, StartMenuActivity.class);
             homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(homeAcitivity);
         }

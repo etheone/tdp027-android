@@ -1,18 +1,13 @@
 package com.act4heart.act4heart;
 
 import android.content.Context;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 
 public class RelapseLastPageFragment extends Fragment {
@@ -75,7 +70,7 @@ public class RelapseLastPageFragment extends Fragment {
     private void makeCall() {
         phoneIcon = (ImageView)getActivity().findViewById(R.id.phone_icon);
         EmergencyCallHandler emergencyCallHandler = new EmergencyCallHandler(phoneIcon, (RelapseProcessActivity)getActivity());
-        emergencyCallHandler.emergencyCall(StartMenu.EMERGENCY_PHONE_NUMBER);
+        emergencyCallHandler.emergencyCall(StartMenuActivity.EMERGENCY_PHONE_NUMBER);
     }
 
 
