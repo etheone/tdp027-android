@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.act4heart.act4heart.RelapseStep4Fragment">
+    tools:context=".Relapseprocess.RelapseStep4Fragment">
 
 
 
@@ -17,7 +17,8 @@
         android:textSize="17dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -38,9 +39,9 @@
         android:background="@drawable/standard_button"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
-        android:layout_above="@+id/clock_container2_step4"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="38dp" />
+        android:layout_marginBottom="60dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -51,20 +52,9 @@
         android:background="@drawable/standard_button"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
-        android:layout_above="@+id/stillHurting"
+        android:alpha="0.25"
+        android:layout_below="@+id/clock_container_step4"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="71dp"
-        android:alpha="0.25"/>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|center_vertical"
-        android:id="@+id/clock_container2_step4"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/clock_container_step4"
-        android:layout_alignStart="@+id/clock_container_step4"
-        android:layout_marginBottom="20dp" />
+        android:layout_marginTop="20dp" />
 
 </RelativeLayout>

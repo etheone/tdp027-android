@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.act4heart.act4heart.RelapseEmergencyGoneFragment">
+    tools:context=".Relapseprocess.RelapseEmergencyGoneFragment">
 
 
     <TextView
@@ -15,7 +15,8 @@
         android:textSize="17dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="30dp" />
+        android:layout_marginRight="30dp"
+        android:textColor="#ffffff" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -27,5 +28,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="30dp" />
+        android:layout_marginRight="30dp"
+        android:textColor="#ffffff" />
 </RelativeLayout>
