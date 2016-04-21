@@ -9,22 +9,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/entryTitle"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        android:layout_marginTop="10dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Tagna nitroglycerin:"
         android:id="@+id/textView6"
-        android:layout_below="@+id/entryTitle"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:textSize="20dp" />
+        android:layout_marginTop="70dp"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +27,8 @@
         android:layout_alignParentStart="true"
         android:textSize="17dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -48,7 +40,8 @@
         android:layout_alignParentEnd="true"
         android:textSize="17dp"
         android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -60,7 +53,8 @@
         android:layout_alignParentStart="true"
         android:textSize="17dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,7 +65,8 @@
         android:layout_alignRight="@+id/startNitro"
         android:layout_alignEnd="@+id/startNitro"
         android:textSize="17dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,7 +78,8 @@
         android:layout_alignParentStart="true"
         android:textSize="17dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -95,7 +91,8 @@
         android:layout_alignEnd="@+id/secondNitro"
         android:textIsSelectable="false"
         android:textSize="17dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -107,7 +104,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="50dp"
         android:textSize="17dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -118,7 +116,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textSize="17dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -130,7 +129,8 @@
         android:layout_alignParentStart="true"
         android:textSize="17dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp" />
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -142,5 +142,6 @@
         android:layout_alignParentStart="true"
         android:textSize="17dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:textColor="#FFFFFF"/>
 </RelativeLayout>
