@@ -6,6 +6,14 @@
     tools:context="com.act4heart.act4heart.HistoryActivity"
     android:background="@drawable/act4heartbg">
 
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar2"
+        android:background="@android:color/black"
+        android:titleTextColor="@android:color/white">
+
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
