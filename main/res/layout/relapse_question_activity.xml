@@ -15,7 +15,6 @@
         android:id="@+id/toolbar2"
         android:background="@android:color/transparent"
         android:titleTextColor="@android:color/white">
-
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
@@ -33,11 +32,12 @@
             android:text="Har du drabbats av hjärtinfarkt tidigare?"
             android:id="@+id/textView"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:textSize="23dp" />
-
-
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#FFFFFF"
+            android:textSize="23dp"
+            android:textAlignment="center" />
 
         <Button
             android:layout_width="200dp"

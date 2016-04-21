@@ -1,9 +1,10 @@
 package com.act4heart.act4heart;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +38,15 @@ public class HistoryEntryFragment extends Fragment {
         view = inflater.inflate(R.layout.history_entry_fragment, container, false);
 
         //fetches all the views and writes text to them
-        TextView historyTitle = (TextView) view.findViewById(R.id.entryTitle);
         TextView historyStart = (TextView) view.findViewById(R.id.startNitro);
         TextView historySecond = (TextView) view.findViewById(R.id.secondNitro);
         TextView historyThird = (TextView) view.findViewById(R.id.thirdNitro);
         TextView historyTotal = (TextView) view.findViewById(R.id.totalAmount);
 
-        historyTitle.setText("Akutsituation " + historyEntry.getStart().split(" ")[0]);
+        ActionBar ab = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle("Akutsituation " + historyEntry.getStart().split(" ")[0]);
+        }
         historyStart.setText(historyEntry.getStart().split(" ")[1]);
         historySecond.setText(historyEntry.getSecond().split(" ")[1]);
         historyThird.setText(historyEntry.getThird().split(" ")[1]);
@@ -63,6 +66,11 @@ public class HistoryEntryFragment extends Fragment {
 
     @Override
     public void onDetach() {
+        ActionBar ab = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        if (ab != null) {
+            ab.setTitle("Historik");
+        }
+
         super.onDetach();
     }
 

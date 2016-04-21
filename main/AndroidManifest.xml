@@ -28,7 +28,7 @@
         <activity android:name=".EmergencySituationActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity android:name=".RelapseProcessActivity"
+        <activity android:name=".Relapseprocess.RelapseProcessActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".HeartGame.HeartGameActivity"

@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.act4heart.act4heart.Relapseprocess.RelapseProcessActivity;
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
 import com.act4heart.act4heart.database.DBHandler;
 
@@ -20,7 +21,7 @@ public class EmergencySituationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency_situation);
 
-        //Add toolbar
+        // Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
 
@@ -29,6 +30,7 @@ public class EmergencySituationActivity extends AppCompatActivity {
             ab.setTitle("Akutsituation");
         }
 
+        // Add onClickListeners to buttons.
         Button buttonStartRelapse = (Button) findViewById(R.id.btn_nitro);
         buttonStartRelapse.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,48 +60,21 @@ public class EmergencySituationActivity extends AppCompatActivity {
         startActivity(start_relapse_process);
     }
 
+    // OPTIONS
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_menu, menu);
-
-        if(StartMenuActivity.soundOn) {
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
-        }
-        else{
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_off);
-        }
+        MenuBarHandler.menuBarSetup(menu);
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        boolean returnValue = MenuBarHandler.menuItemFunctionality(item, this);
 
-
-        if (id == R.id.action_sound) {
-            if(StartMenuActivity.soundOn) {
-                item.setIcon(R.drawable.ic_volume_off);
-                StartMenuActivity.soundOn = false;
-            }
-            else{
-                item.setIcon(R.drawable.ic_volume_up);
-                StartMenuActivity.soundOn = true;
-            }
-            StartMenuActivity.prefs.edit().putBoolean("soundOn", StartMenuActivity.soundOn).commit();
-            return true;
-        }
-
-        if (id == R.id.home_button) {
-            Intent homeAcitivity = new Intent(this, StartMenuActivity.class);
-            homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(homeAcitivity);
-        }
-
+        if(returnValue) return returnValue;
         return super.onOptionsItemSelected(item);
     }
 

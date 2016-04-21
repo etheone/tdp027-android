@@ -23,13 +23,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class RedClock {
+public class TimeStampHandler {
 
     private JSONArray timerData;
 
     private SharedPreferences prefs;
 
-    public RedClock(Context context) {
+    public TimeStampHandler(Context context) {
         // Required empty public constructor
 
         //Get saved timerdata

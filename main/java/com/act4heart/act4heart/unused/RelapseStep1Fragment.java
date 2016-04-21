@@ -1,4 +1,4 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.unused;
 
 
 import android.os.Bundle;
@@ -8,6 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.act4heart.act4heart.EmergencyCallHandler;
+import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.Relapseprocess.RelapseStep2Fragment;
+import com.act4heart.act4heart.Relapseprocess.RelapseProcessActivity;
+import com.act4heart.act4heart.StartMenuActivity;
+
 
 
 /**
@@ -69,7 +76,7 @@ public class RelapseStep1Fragment extends Fragment {
 
 
         //Saves the first timestamp for this emergency
-        ((RelapseProcessActivity)this.getActivity()).redClock.saveStartTime();
+        ((RelapseProcessActivity)this.getActivity()).timeStampHandler.saveStartTime();
 
         // Inflate the layout for this fragment
         return v;

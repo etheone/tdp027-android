@@ -53,7 +53,6 @@ public class SymptomsActivity extends AppCompatActivity {
         }
 
         displayListView();
-
     }
 
     private void displayListView() {
@@ -73,14 +72,14 @@ public class SymptomsActivity extends AppCompatActivity {
 
         isChecked = new boolean[symptomsList.size()];
 
-
         final ListView listView = (ListView)findViewById(R.id.symptomsListView);
 
-
+        // Add adapter to listView
         adapter = new MyCustomCheckboxAdapter(this, android.R.layout.simple_selectable_list_item , symptomsList);
         listView.setAdapter(adapter);
     }
 
+    /* A custom adapter that creates a listview of checkBoxes from an ArratList of strings*/
     private class MyCustomCheckboxAdapter extends ArrayAdapter<String>{
         private ArrayList<String> infoLines;
         private Context context;
@@ -117,11 +116,10 @@ public class SymptomsActivity extends AppCompatActivity {
             });
             cb.setText(infoLines.get(position));
 
-
             return convertView;
         }
 
-    }
+    } // End of MyCustomCheckboxAdapter Class.
 
 
     private void startNoSymptoms() {
@@ -130,7 +128,6 @@ public class SymptomsActivity extends AppCompatActivity {
     }
 
     private void continueFromSymptoms() {
-
         if(checkCount > 0) {
             Intent relapseQuestion = new Intent(this, RelapseQuestionActivity.class);
             startActivity(relapseQuestion);
@@ -140,8 +137,7 @@ public class SymptomsActivity extends AppCompatActivity {
         }
     }
 
-
-
+    // OPTIONS
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

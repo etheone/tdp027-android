@@ -1,4 +1,4 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.Relapseprocess;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,14 +11,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.act4heart.act4heart.MenuBarHandler;
+import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.TimeStampHandler;
+import com.act4heart.act4heart.unused.RelapseStep1Fragment;
+import com.act4heart.act4heart.StartMenuActivity;
+
 public class RelapseProcessActivity extends AppCompatActivity {
 
 
     //If the timer has run out
     public Boolean canProceed = false;
-    public RedClock redClock;
 
-    public static boolean demoMode = false;
+    //Used to save timestamps for the historyactivity
+    public TimeStampHandler timeStampHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +35,19 @@ public class RelapseProcessActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
 
+        //Set the toolbar name
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setTitle("Återfallsprocess");
         }
 
-        redClock = new RedClock(this);
-        //RelapseStep1Fragment step1 = RelapseStep1Fragment.newInstance();
-        // getSupportFragmentManager().beginTransaction()
-       // .replace(R.id.fragment_container, gMapFragment).commit();
+        //Instatiate timeStampHandler
+        timeStampHandler = new TimeStampHandler(this);
 
-        //getSupportFragmentManager().beginTransaction().replace(R.id.relapse_fragment_container, step1).commit();
         switchFragment(2);
     }
 
+    //Takes an argument that is used to determine the next step in the relapseprocess
     public void switchFragment(int nextFragment){
         Fragment fragment = null;
         if(nextFragment == 1){
@@ -62,54 +67,28 @@ public class RelapseProcessActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_menu, menu);
-
-        if(StartMenuActivity.soundOn) {
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
-        }
-        else{
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_off);
-        }
+        MenuBarHandler.menuBarSetup(menu);
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        boolean returnValue = MenuBarHandler.menuItemFunctionality(item, this);
 
-
-        if (id == R.id.action_sound) {
-            if(StartMenuActivity.soundOn) {
-                item.setIcon(R.drawable.ic_volume_off);
-                StartMenuActivity.soundOn = false;
-            }
-            else{
-                item.setIcon(R.drawable.ic_volume_up);
-                StartMenuActivity.soundOn = true;
-            }
-            StartMenuActivity.prefs.edit().putBoolean("soundOn", StartMenuActivity.soundOn).commit();
-            return true;
-        }
-
-        if (id == R.id.home_button) {
-            Intent homeAcitivity = new Intent(this, StartMenuActivity.class);
-            homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(homeAcitivity);
-        }
-
+        if(returnValue) return returnValue;
         return super.onOptionsItemSelected(item);
     }
 
     //Override the standard back button function
     @Override
     public void onBackPressed(){
+
+        //We should open an alert if the user tries to go back inside the relapseprocess
         openAlert();
     }
 
-    private void openAlert() {
+    public void openAlert() {
 
         // Create a dialog alert that tells user that you are ending the emergency process
         // Choose either Ja to end the process or no to continue
@@ -119,9 +98,11 @@ public class RelapseProcessActivity extends AppCompatActivity {
         dlgAlert.setPositiveButton("Ja",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+
                         //Change to startMenu Activity
                         //Intent startMenu = new Intent(getApplicationContext(), StartMenuActivity.class);
                         //startActivity(startMenu);
+
                         endRelapseProcess();
                         
 
@@ -133,10 +114,12 @@ public class RelapseProcessActivity extends AppCompatActivity {
     }
 
     private void endRelapseProcess() {
+        //Returns the user home. Removes the activity stack so that the backbutton does not
+        // take us back to the fragments.
         Intent homeAcitivity = new Intent(this, StartMenuActivity.class);
+
         homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(homeAcitivity);
-        //finish();
     }
 
 

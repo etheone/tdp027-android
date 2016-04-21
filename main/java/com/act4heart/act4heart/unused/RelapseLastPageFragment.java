@@ -1,4 +1,4 @@
-package com.act4heart.act4heart;
+package com.act4heart.act4heart.unused;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.act4heart.act4heart.EmergencyCallHandler;
+import com.act4heart.act4heart.MyLocationListener;
+import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.Relapseprocess.RelapseProcessActivity;
+import com.act4heart.act4heart.StartMenuActivity;
 
 
 public class RelapseLastPageFragment extends Fragment {
@@ -41,10 +47,10 @@ public class RelapseLastPageFragment extends Fragment {
         myLocationListener = new MyLocationListener(this.getContext(),positionText);
 
         TextView startTimeStamp = (TextView) view.findViewById(R.id.activityStartText);
-        startTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).redClock.getSavedHHmmByKey("Start"));
+        startTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).timeStampHandler.getSavedHHmmByKey("Start"));
 
         TextView lastTimeStamp = (TextView) view.findViewById(R.id.lastNitroText);
-        lastTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).redClock.getSavedHHmmByKey("Third"));
+        lastTimeStamp.setText(((RelapseProcessActivity) this.getActivity()).timeStampHandler.getSavedHHmmByKey("Third"));
 
 
         //Makes phonebutton clickable
