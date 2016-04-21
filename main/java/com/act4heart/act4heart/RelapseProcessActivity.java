@@ -133,7 +133,10 @@ public class RelapseProcessActivity extends AppCompatActivity {
     }
 
     private void endRelapseProcess() {
-        finish();
+        Intent homeAcitivity = new Intent(this, StartMenu.class);
+        homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(homeAcitivity);
+        //finish();
     }
 
 

@@ -122,5 +122,4 @@ public class InformationActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }
