@@ -8,7 +8,7 @@ import android.view.MenuItem;
  */
 public class MenuBarHandler {
 
-    static public void menubarSetup(Menu menu){
+    static public void menuBarSetup(Menu menu){
         if(StartMenu.soundOn) {
             ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
         }
