@@ -18,6 +18,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 
 import com.act4heart.act4heart.EmergencyQuestions.RelapseQuestionActivity;
+import com.act4heart.act4heart.InformationActivity;
 import com.act4heart.act4heart.MenuBarHandler;
 import com.act4heart.act4heart.R;
 
@@ -28,13 +29,15 @@ public class SymptomsActivity extends AppCompatActivity {
     private MyCustomCheckboxAdapter adapter;
     private int checkCount = 0;
     private boolean[] isChecked;
+    //private boolean criticalSituation;
+    private Button continueButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.symptoms_activity);
 
-        Button continueButton = (Button) findViewById(R.id.btn_continue);
+        continueButton = (Button) findViewById(R.id.btn_continue);
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,16 +62,16 @@ public class SymptomsActivity extends AppCompatActivity {
 
         //Array list of symptoms
         final ArrayList<String> symptomsList = new ArrayList<String>();
-        symptomsList.add("Stark och ihållande bröstsmärta");
+        symptomsList.add("Ihållande bröstsmärta");
         symptomsList.add("Obehagskänsla i bröstet");
-        symptomsList.add("Strålande i halsen");
-        symptomsList.add("Käkarna eller skuldrorna värker");
-        symptomsList.add("Illamående");
+        symptomsList.add("Strålande i hals, käkar eller skuldror");
+        symptomsList.add("Illamående");                                 // Critical
         symptomsList.add("Andnöd");
-        symptomsList.add("Kallsvettningar");
+        symptomsList.add("Kallsvettning");                              // Critical
         symptomsList.add("Rädsla och ångest");
         symptomsList.add("Värk i ryggen");
         symptomsList.add("Hjärtklappning och yrsel");
+        symptomsList.add("Influensaliknande besvär");
 
         isChecked = new boolean[symptomsList.size()];
 
@@ -112,6 +115,11 @@ public class SymptomsActivity extends AppCompatActivity {
                         isChecked[position] = false;
                     }
                     System.out.println(checkCount);
+                    if (checkCount > 0) {
+                        continueButton.setText("Fortsätt");
+                    } else {
+                        continueButton.setText("Hoppa över");
+                    }
                 }
             });
             cb.setText(infoLines.get(position));
@@ -122,18 +130,23 @@ public class SymptomsActivity extends AppCompatActivity {
     } // End of MyCustomCheckboxAdapter Class.
 
 
-    private void startNoSymptoms() {
-        Intent noSymptomsActivity = new Intent(this, NoSymptomsActivity.class);
-        startActivity(noSymptomsActivity);
+    private void startInfoActivity() {
+        Intent infoActivity = new Intent(this, InformationActivity.class);
+        startActivity(infoActivity);
     }
 
     private void continueFromSymptoms() {
         if(checkCount > 0) {
-            Intent relapseQuestion = new Intent(this, RelapseQuestionActivity.class);
-            startActivity(relapseQuestion);
+            if(isChecked[3] || isChecked[5]) {
+                Intent sosCall = new Intent(this, SOSCallActivity.class);
+                startActivity(sosCall);
+            } else {
+                Intent relapseQuestion = new Intent(this, RelapseQuestionActivity.class);
+                startActivity(relapseQuestion);
+            }
         }
         else{
-           startNoSymptoms();
+           startInfoActivity();
         }
     }
 
