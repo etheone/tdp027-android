@@ -2,6 +2,7 @@ package com.act4heart.act4heart;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,8 @@ public class StartMenuActivity extends AppCompatActivity{
 
     private Menu thisMenu = null;
 
+    private static int SPLASH_TIME_OUT = 2000;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class StartMenuActivity extends AppCompatActivity{
         prefs = getSharedPreferences("soundOn", 0);
         soundOn = prefs.getBoolean("soundOn", true);
 
-        //Add toolbar
+        /*Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
 
@@ -49,20 +52,43 @@ public class StartMenuActivity extends AppCompatActivity{
             public void onClick(View v) {
                 startEmergencyActivity();
             }
-        });
+        });*/
 
 
         // set the phone id in the static class DBHandler
         DBHandler.setPhoneId(Settings.Secure.getString(this.getContentResolver(), Settings.Secure.ANDROID_ID));
 
 
-        Button btnInfo = (Button) findViewById(R.id.btn_info);
+       /* Button btnInfo = (Button) findViewById(R.id.btn_info);
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startInfoActivity();
             }
-        });
+        });*/
+
+
+
+
+
+
+        new Handler().postDelayed(new Runnable() {
+
+            /*
+             * Showing splash screen with a timer. This will be useful when you
+             * want to show case your app logo / company
+             */
+
+            @Override
+            public void run() {
+                // This method will be executed once the timer is over
+                // Start your app main activity
+                startEmergencyActivity();
+
+                // close this activity
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
     }
 
     void startEmergencyActivity() {

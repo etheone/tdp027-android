@@ -36,7 +36,7 @@ public class NoSymptomsActivity extends AppCompatActivity {
     }
 
     private void goToStartMenu() {
-        Intent emergency = new Intent(this, StartMenuActivity.class);
+        Intent emergency = new Intent(this, SymptomsActivity.class);
         startActivity(emergency);
     }
 

@@ -43,14 +43,14 @@ public class SymptomsActivity extends AppCompatActivity {
         });
 
 
-        //Add toolbar
+        /*Add toolbar
         Toolbar myToolbar = (Toolbar)findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
 
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setTitle("Symptom");
-        }
+        }*/
 
         displayListView();
     }
@@ -137,6 +137,8 @@ public class SymptomsActivity extends AppCompatActivity {
         }
     }
 
+
+    /*
     // OPTIONS
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -153,7 +155,7 @@ public class SymptomsActivity extends AppCompatActivity {
 
         if(returnValue) return returnValue;
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 
 }

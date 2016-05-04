@@ -97,4 +97,14 @@ public class SOSCallActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        //Returns the user home. Removes the activity stack so that the backbutton does not
+        // take us back to the fragments.
+        Intent homeAcitivity = new Intent(this, SymptomsActivity.class);
+
+        homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(homeAcitivity);
+    }
+
 }

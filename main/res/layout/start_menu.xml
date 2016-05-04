@@ -3,16 +3,20 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/act4heartbg">
+    android:background="#FFFFFF">
 
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:id="@+id/toolbar2"
     android:background="@android:color/transparent"
     android:titleTextColor="@android:color/white">
 
-</android.support.v7.widget.Toolbar>
+</android.support.v7.widget.Toolbar>  -->
+
+
+
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -22,16 +26,16 @@
     tools:context=".StartMenuActivity">
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:id="@+id/imageView"
-        android:src="@drawable/logo420x420"
+        android:src="@drawable/act4heart"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:paddingBottom="60dp"
         />
 
-    <Button
+    <!--<Button
         android:layout_width="200dp"
         android:layout_height="70dp"
         android:text="@string/symptom"
@@ -52,7 +56,7 @@
         android:layout_marginTop="20dp"
         android:layout_below="@+id/btn_akut"
         android:layout_alignLeft="@+id/btn_akut"
-        android:layout_alignStart="@+id/btn_akut" />
+        android:layout_alignStart="@+id/btn_akut" /> -->
 
 </RelativeLayout>
 </LinearLayout>

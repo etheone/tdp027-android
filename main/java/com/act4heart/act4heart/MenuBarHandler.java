@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.act4heart.act4heart.Relapseprocess.RelapseProcessActivity;
+import com.act4heart.act4heart.Symptoms.SymptomsActivity;
 
 /**
  * Created by joagy323 on 2016-04-21.
@@ -50,13 +51,13 @@ public class MenuBarHandler {
         }
             if (id == R.id.home_button) {
 
-                Intent homeAcitivity = new Intent(context, StartMenuActivity.class);
+                /*Intent homeAcitivity = new Intent(context, SymptomsActivity.class);
                 homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                context.startActivity(homeAcitivity);
+                context.startActivity(homeAcitivity);*/
                 // Create a dialog alert that tells user that you are ending the emergency process
                 // Choose either Ja to end the process or no to continue
                 AlertDialog.Builder dlgAlert = new AlertDialog.Builder(context);
-                dlgAlert.setMessage("Vilken du verkligen avbryta och återgå till huvudmenyn?");
+                dlgAlert.setMessage("Vill du verkligen avbryta och återgå till startsidan?");
                 dlgAlert.setTitle("OBS!");
                 dlgAlert.setPositiveButton("Ja",
                         new DialogInterface.OnClickListener() {
@@ -78,7 +79,7 @@ public class MenuBarHandler {
 
         //Returns the user home. Removes the activity stack so that the backbutton does not
         // take us back to the fragments.
-        Intent homeAcitivity = new Intent(context, StartMenuActivity.class);
+        Intent homeAcitivity = new Intent(context, SymptomsActivity.class);
         homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(homeAcitivity);
     }

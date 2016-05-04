@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import com.act4heart.act4heart.MenuBarHandler;
 import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.Symptoms.SymptomsActivity;
 import com.act4heart.act4heart.TimeStampHandler;
 import com.act4heart.act4heart.unused.RelapseStep1Fragment;
 import com.act4heart.act4heart.StartMenuActivity;
@@ -116,7 +117,7 @@ public class RelapseProcessActivity extends AppCompatActivity {
     private void endRelapseProcess() {
         //Returns the user home. Removes the activity stack so that the backbutton does not
         // take us back to the fragments.
-        Intent homeAcitivity = new Intent(this, StartMenuActivity.class);
+        Intent homeAcitivity = new Intent(this, SymptomsActivity.class);
 
         homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(homeAcitivity);
