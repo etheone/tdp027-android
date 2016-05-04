@@ -27,6 +27,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/redClockContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/redClockText"></RelativeLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,10 +43,23 @@
         android:layout_gravity="right|center_vertical"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
-        android:background="@drawable/standard_button"
         android:alpha="1.0"
-        android:layout_alignParentBottom="true"
+        android:background="@drawable/standard_button"
+        android:layout_above="@id/redClockContainer"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp" />
+        android:layout_marginBottom="15dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total tid sedan situationen började"
+        android:id="@+id/redClockText"
+        android:textSize="17dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/btn_to_emergency_call3"
+        android:layout_alignEnd="@+id/btn_to_emergency_call3"
+        android:layout_marginBottom="10dp"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

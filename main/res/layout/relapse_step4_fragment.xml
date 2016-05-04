@@ -30,18 +30,41 @@
         android:layout_below="@+id/editText"
         android:layout_centerHorizontal="true"></LinearLayout>
 
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/redClockContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/redClockText"></RelativeLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mitt tillstånd har förvärrats"
         android:id="@+id/stillHurting"
         android:layout_gravity="right|center_vertical"
-        android:background="@drawable/standard_button"
         android:paddingLeft="14dp"
         android:paddingRight="14dp"
-        android:layout_alignParentBottom="true"
+        android:background="@drawable/standard_button"
+        android:layout_above="@id/redClockContainer"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp" />
+        android:layout_marginBottom="15dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total tid sedan situationen började"
+        android:id="@+id/redClockText"
+        android:textSize="17dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/stillHurting"
+        android:layout_alignEnd="@+id/stillHurting"
+        android:layout_marginBottom="10dp"
+        android:textColor="#ffffff" />
+
 
     <Button
         android:layout_width="wrap_content"
@@ -56,5 +79,7 @@
         android:layout_below="@+id/clock_container_step4"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
+
+
 
 </RelativeLayout>
