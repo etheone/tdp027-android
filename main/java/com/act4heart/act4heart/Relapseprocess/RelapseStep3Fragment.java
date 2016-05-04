@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.act4heart.act4heart.R;
+import com.act4heart.act4heart.RedClockFragment;
 import com.act4heart.act4heart.Symptoms.SOSCallActivity;
 
 
@@ -61,6 +62,14 @@ public class RelapseStep3Fragment extends Fragment {
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step3, clock).commit();
 
         ((RelapseProcessActivity)this.getActivity()).timeStampHandler.saveNewVariable("Second", "");
+
+        //Activate red clock
+        RedClockFragment redClock = RedClockFragment.newInstance();
+
+        //Sets the clock to continue
+        redClock.continueClock();
+
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.redClockContainer, redClock).commit();
 
         // Inflate the layout for this fragment
         return view;
