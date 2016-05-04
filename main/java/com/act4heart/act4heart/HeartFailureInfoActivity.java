@@ -60,15 +60,15 @@ public class HeartFailureInfoActivity extends AppCompatActivity {
 
         // Adding child data
         List<String> treatmentProcess = new ArrayList<String>();
-        treatmentProcess.add("En hjärtinfarkt beror oftast på att en blodpropp har bildats som helt"+
-                "eller delvis täpper till hjärtats kranskärl så att blodet inte kan passera som det"+
-                "brukar. Den del av hjärtat som skulle ha tagit emot blodet från det tilltäppta"+
-                "kärlet drabbas av syrebrist och hjärtmuskeln skadas." +
-                "\n\nVid en hjärtinfarkt kan en skada uppkomma som gör att hjärtat inte"+
-                "klarar att arbeta lika bra som innan. Hjärtinfarkt kan vara en livshotande"+
-                "sjukdom och kräver omedelbar sjukhusvård. Ju tidigare du får vård desto"+
-                "större är möjligheten att behandla och påverka hjärtinfarktens utveckling." +
-                "Om du misstänker att någon i din närhet fått en hjärtinfarkt, ring 112.");
+        treatmentProcess.add("En hjärtinfarkt beror oftast på att en blodpropp har bildats som helt "+
+                "eller delvis täpper till hjärtats kranskärl så att blodet inte kan passera som det "+
+                "brukar. Den del av hjärtat som skulle ha tagit emot blodet från det tilltäppta "+
+                "kärlet drabbas av syrebrist och hjärtmuskeln skadas. " +
+                "\n\nVid en hjärtinfarkt kan en skada uppkomma som gör att hjärtat inte "+
+                "klarar att arbeta lika bra som innan. Hjärtinfarkt kan vara en livshotande "+
+                "sjukdom och kräver omedelbar sjukhusvård. Ju tidigare du får vård desto "+
+                "större är möjligheten att behandla och påverka hjärtinfarktens utveckling. " +
+                "Om du misstänker att någon i din närhet fått en hjärtinfarkt, ring 112. ");
 
         List<String> bodyInfo = new ArrayList<String>();
         bodyInfo.add("Om du är äldre eller har diabetes och får hjärtinfarkt, är det inte säkert "+
@@ -96,44 +96,16 @@ public class HeartFailureInfoActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_start_menu, menu);
-
-        if(StartMenuActivity.soundOn) {
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_up);
-        }
-        else{
-            ((MenuItem)menu.findItem(R.id.action_sound)).setIcon(R.drawable.ic_volume_off);
-        }
+        MenuBarHandler.menuBarSetup(menu);
 
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        boolean returnValue = MenuBarHandler.menuItemFunctionalityNoPopup(item, this);
 
-
-        if (id == R.id.action_sound) {
-            if(StartMenuActivity.soundOn) {
-                item.setIcon(R.drawable.ic_volume_off);
-                StartMenuActivity.soundOn = false;
-            }
-            else{
-                item.setIcon(R.drawable.ic_volume_up);
-                StartMenuActivity.soundOn = true;
-            }
-            StartMenuActivity.prefs.edit().putBoolean("soundOn", StartMenuActivity.soundOn).commit();
-            return true;
-        }
-
-        if (id == R.id.home_button) {
-            Intent homeAcitivity = new Intent(this, StartMenuActivity.class);
-            homeAcitivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(homeAcitivity);
-        }
-
+        if(returnValue) return returnValue;
         return super.onOptionsItemSelected(item);
     }
 }
