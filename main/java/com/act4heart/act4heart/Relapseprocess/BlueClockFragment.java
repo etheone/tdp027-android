@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -25,11 +26,12 @@ public class BlueClockFragment extends Fragment {
     private CountDownTimer clockTimer;
 
     private int countDown;
-    private Ringtone ringtone;
+    private MediaPlayer ringtone;
     private Button btnLink = null;
     private String dialogMessage = "5 Minuter har gått!";
 
     // Sound variables
+    private AudioManager mAudioManager;
     private int currentVolume;
     private boolean soundIsPlaying = false;
 
@@ -60,7 +62,8 @@ public class BlueClockFragment extends Fragment {
 
         //Initializes the ringtone that is to be played when the timer runs out
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        ringtone = RingtoneManager.getRingtone(getContext(), notification);
+        ringtone = MediaPlayer.create(getContext(), R.raw.alarm);
+        ringtone.setLooping(true);
 
         //The seperator between hour and minutes
         final TextView seperatorHour = (TextView) view.findViewById(R.id.seperatorHour);
@@ -178,18 +181,13 @@ public class BlueClockFragment extends Fragment {
         if(StartMenuActivity.soundOn) {
             soundIsPlaying = true;
 
-            AudioManager audio = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
-
-            // Store previous volume.
-            currentVolume = audio.getStreamVolume(AudioManager.STREAM_RING);
-
-            int max = audio.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION);
-            audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-            audio.setStreamVolume(AudioManager.STREAM_RING, max, AudioManager.FLAG_REMOVE_SOUND_AND_VIBRATE);
+            mAudioManager = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
+            currentVolume = mAudioManager.getStreamVolume(AudioManager.STREAM_MUSIC);
+            mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, mAudioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), 0);
 
             //Makes sure we dont try to play a ringtone that does not exists
             if(ringtone != null) {
-                ringtone.play();
+                ringtone.start();
             }
         }
     }
@@ -198,10 +196,9 @@ public class BlueClockFragment extends Fragment {
     public void stopAlarm(){
         if(soundIsPlaying) {
             soundIsPlaying = false;
-            AudioManager audio = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
 
-            audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-            audio.setStreamVolume(AudioManager.STREAM_RING, currentVolume, AudioManager.ADJUST_SAME);
+            //audio.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+            mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, currentVolume, 0);
 
             //Makes sure we dont try to stop a ringtone that does not exists
             if(ringtone != null) {
