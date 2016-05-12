@@ -60,15 +60,7 @@ public class HeartFailureInfoActivity extends AppCompatActivity {
 
         // Adding child data
         List<String> treatmentProcess = new ArrayList<String>();
-        treatmentProcess.add("En hjärtinfarkt beror oftast på att en blodpropp har bildats som helt "+
-                "eller delvis täpper till hjärtats kranskärl så att blodet inte kan passera som det "+
-                "brukar. Den del av hjärtat som skulle ha tagit emot blodet från det tilltäppta "+
-                "kärlet drabbas av syrebrist och hjärtmuskeln skadas. " +
-                "\n\nVid en hjärtinfarkt kan en skada uppkomma som gör att hjärtat inte "+
-                "klarar att arbeta lika bra som innan. Hjärtinfarkt kan vara en livshotande "+
-                "sjukdom och kräver omedelbar sjukhusvård. Ju tidigare du får vård desto "+
-                "större är möjligheten att behandla och påverka hjärtinfarktens utveckling. " +
-                "Om du misstänker att någon i din närhet fått en hjärtinfarkt, ring 112. ");
+        treatmentProcess.add("Vid en hjärtinfarkt kan en skada uppkomma som gör att hjärtat inte klarar att arbeta lika bra som innan. Hjärtinfarkt kan vara en livshotande sjukdom och kräver omedelbar sjukhusvård. Ju tidigare du får vård desto större är möjligheten att behandla och påverka hjärtinfarktens utveckling.Om du misstänker att någon i din närhet fått en hjärtinfarkt, ring 112.Vid en akut hjärtinfarkt frisätts stresshormoner ut i blodbanan som leder till förhöjt blodtryck och snabbare hjärtrytm. Detta stressar hjärtat ytterligare och ökar den farliga syrebristen. Om du fått en hjärtinfarkt behöver kranskärlet som har täppts till av en blodpropp öppnas så snabbt som möjligt så att blodet kan passera normalt igen. Det kan ske med en så kallad ballongvidgning av kärlen eller med blodproppslösande medicin. Du får också behandling med andra typer av läkemedel efter utskrivningen.Ju tidigare kärlet öppnas, desto större är chansen att blodflödet till hjärtmuskeln återställs och hjärtskadan minimeras. Om du bor i närheten av ett sjukhus som kan göra akut ballongvidgning brukar ambulansen köra direkt dit om EKG-bilden uppvisar ett särskilt mönster. Om du befinner dig mer än två timmar från ett sådantsjukhus kan du få propplösande medicin, som kan ges redan i hemmet eller i ambulansen av en sjuksköterska, som följt med. ");
 
         List<String> bodyInfo = new ArrayList<String>();
         bodyInfo.add("Om du är äldre eller har diabetes och får hjärtinfarkt, är det inte säkert "+
@@ -87,9 +79,12 @@ public class HeartFailureInfoActivity extends AppCompatActivity {
                 "-Infektioner.");
 
 
+
+
         listDataChild.put(listDataHeader.get(0), treatmentProcess); // Header, Child data
         listDataChild.put(listDataHeader.get(1), bodyInfo);
         listDataChild.put(listDataHeader.get(2), riskZone);
+
     }
 
     @Override
