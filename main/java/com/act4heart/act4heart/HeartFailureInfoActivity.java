@@ -57,16 +57,36 @@ public class HeartFailureInfoActivity extends AppCompatActivity {
         listDataHeader.add("Hjärtinfarkt");
         listDataHeader.add("Vaga symptom kan också vara infarkt");
         listDataHeader.add("Bröstsmärtor kan vara annat än infarkt");
+        listDataHeader.add("Riskfaktorer");
+
 
         // Adding child data
         List<String> treatmentProcess = new ArrayList<String>();
-        treatmentProcess.add("Vid en hjärtinfarkt kan en skada uppkomma som gör att hjärtat inte klarar att arbeta lika bra som innan. Hjärtinfarkt kan vara en livshotande sjukdom och kräver omedelbar sjukhusvård. Ju tidigare du får vård desto större är möjligheten att behandla och påverka hjärtinfarktens utveckling.Om du misstänker att någon i din närhet fått en hjärtinfarkt, ring 112.Vid en akut hjärtinfarkt frisätts stresshormoner ut i blodbanan som leder till förhöjt blodtryck och snabbare hjärtrytm. Detta stressar hjärtat ytterligare och ökar den farliga syrebristen. Om du fått en hjärtinfarkt behöver kranskärlet som har täppts till av en blodpropp öppnas så snabbt som möjligt så att blodet kan passera normalt igen. Det kan ske med en så kallad ballongvidgning av kärlen eller med blodproppslösande medicin. Du får också behandling med andra typer av läkemedel efter utskrivningen.Ju tidigare kärlet öppnas, desto större är chansen att blodflödet till hjärtmuskeln återställs och hjärtskadan minimeras. Om du bor i närheten av ett sjukhus som kan göra akut ballongvidgning brukar ambulansen köra direkt dit om EKG-bilden uppvisar ett särskilt mönster. Om du befinner dig mer än två timmar från ett sådantsjukhus kan du få propplösande medicin, som kan ges redan i hemmet eller i ambulansen av en sjuksköterska, som följt med. ");
+        treatmentProcess.add("Vid en hjärtinfarkt kan en skada uppkomma som gör att hjärtat inte klarar att arbeta lika bra som innan. "
+                +"Hjärtinfarkt kan vara en livshotande sjukdom och kräver omedelbar sjukhusvård. Ju tidigare du får vård desto större är möjligheten att behandla och påverka hjärtinfarktens utveckling.\n\n"
+                +"Om du misstänker att någon i din närhet fått en hjärtinfarkt, ring 112.\n\n"
+                +"Vid en akut hjärtinfarkt frisätts stresshormoner ut i blodbanan som leder till förhöjt blodtryck och snabbare hjärtrytm. Detta stressar hjärtat ytterligare och ökar den farliga syrebristen. "
+                +"Om du fått en hjärtinfarkt behöver kranskärlet som har täppts till av en blodpropp öppnas så snabbt som möjligt så att blodet kan passera normalt igen."
+                +"Det kan ske med en så kallad ballongvidgning av kärlen eller med blodproppslösande medicin. Du får också behandling med andra typer av läkemedel efter utskrivningen.\n\n"
+                +"Ju tidigare kärlet öppnas, desto större är chansen att blodflödet till hjärtmuskeln återställs och hjärtskadan minimeras. "
+                +"Om du bor i närheten av ett sjukhus som kan göra akut ballongvidgning brukar ambulansen köra direkt dit om EKG-bilden uppvisar ett särskilt mönster. "
+                +"Om du befinner dig mer än två timmar från ett sådant sjukhus kan du få propplösande medicin, som kan ges redan i hemmet eller i ambulansen av en sjuksköterska, som följt med. ");
 
         List<String> bodyInfo = new ArrayList<String>();
         bodyInfo.add("Om du är äldre eller har diabetes och får hjärtinfarkt, är det inte säkert "+
                         "att du får ont i bröstet. Symtomen kan då vara diffusa, som andnöd eller "+
                         "stark trötthet. Smärtan kan vara mindre intensiv och kan misstolkas som "+
-                        "mindre allvarlig.");
+                        "mindre allvarlig.\n\n-Ihållande bröstsmärta\n" +
+                "-Obehagskänsla i bröstet\n" +
+                "-Strålande i hals, käkar eller skuldror\n" +
+                "-Illamående\n" +
+                "-Viktigt att inte ta nitroglycerin om du är illamående \n" +
+                "-Andnöd\n" +
+                "-Kallsvettning\n" +
+                "-Rädsla och ångest\n" +
+                "-Värk i ryggen\n" +
+                "-Hjärtklappning och yrsel\n" +
+                "-Influensaliknande besvär");
 
         List<String> riskZone = new ArrayList<String>();
         riskZone.add("Bröstsmärtor är en av de vanligaste anledningarna att söka akut sjukhusvård. "+
@@ -78,12 +98,24 @@ public class HeartFailureInfoActivity extends AppCompatActivity {
                 "-Besvär i bröstkorgen eller överkroppens muskler\n" +
                 "-Infektioner.");
 
-
+        List<String> riskFactors = new ArrayList<String>();
+        riskFactors.add("Hjärt- och kärlsjukdomar är den vanligaste dödsorsaken i Sverige."
+                +"Ungefär hälften av västvärldens befolkning insjuknar och dör i någon av dessa sjukdomar, "
+                +"där akut kranskärlssjukdom, alltså instabil kärlkramp och hjärtinfarkt, utgör en stor del.\n\n"
+                +"Det är känt att vissa typiska riskfaktorer ökar risken för att få hjärtinfarkt. "
+                +"De flesta av dessa kan du påverka med ändrade vanor. Risken ökar också med åldern.\n\n"
+                +"-Sluta med rökning och annat tobaksbruk. Även om du redan har blivit sjuk finns stora hälsovinster med att sluta röka.\n\n" +
+                "-Minska det skadliga kolesterolet (LDL) genom ändrad kost. Höga blodfetter ökar risken för att fååderförfettning, vilket i sin tur ökar risken för hjärtinfarkt.\n\n" +
+                "-Håll din diabetessjukdom under kontroll, diabetes typ 1 eller diabetes typ 2. Två av tre personer som får en hjärtinfarkt har en försämrad omsättning av socker i kroppen.\n\n" +
+                "-Högt blodtryck ökar risken för hjärtinfarkt. Du kan ofta sänka blodtrycket med fysisk aktivitet eller läkemedel. \n\n" +
+                "-Motionera regelbundet. En daglig promenad på 30 minuter är bra motion för att minska risken för att få en kranskärlssjukdom.");
 
 
         listDataChild.put(listDataHeader.get(0), treatmentProcess); // Header, Child data
         listDataChild.put(listDataHeader.get(1), bodyInfo);
         listDataChild.put(listDataHeader.get(2), riskZone);
+        listDataChild.put(listDataHeader.get(3), riskFactors);
+
 
     }
 

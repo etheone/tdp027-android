@@ -57,10 +57,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView txtListChild = (TextView) convertView.findViewById(R.id.lbl_list_item);
         txtListChild.setText(childText);
+        TextView txtListChild2 = (TextView) convertView.findViewById(R.id.lbl_list_item2);
 
-        if(childPosition == 0) {
-            TextView txtListChild2 = (TextView) convertView.findViewById(R.id.lbl_list_item2);
-
+        if(groupPosition == 0) {
             txtListChild2.setClickable(true);
             txtListChild2.setMovementMethod(LinkMovementMethod.getInstance());
             String text = "<a href='http://www.1177.se'> Läs vidare på 1177. </a>";
@@ -68,6 +67,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
             txtListChild2.setVisibility(View.VISIBLE);
 
+        }else {
+            txtListChild2.setVisibility(View.INVISIBLE);
         }
         return convertView;
     }

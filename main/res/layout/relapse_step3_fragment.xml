@@ -37,7 +37,7 @@
 
     <Button
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:text="Mitt tillstånd har förvärrats"
         android:id="@+id/btn_to_emergency_call3"
         android:layout_gravity="right|center_vertical"

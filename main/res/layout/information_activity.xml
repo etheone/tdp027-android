@@ -39,7 +39,7 @@
 
         <Button
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:text="Presentation av appen"
             android:id="@+id/btn_about_app"
             android:background="@drawable/standard_button"
@@ -51,11 +51,11 @@
 
         <Button
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:text="Om hjärtinfarkt"
             android:id="@+id/btn_about_heart_failure"
             android:background="@drawable/standard_button"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="50dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textAllCaps="false"
@@ -63,7 +63,7 @@
 
         <Button
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:text="Historik"
             android:id="@+id/btn_history"
             android:background="@drawable/standard_button"
