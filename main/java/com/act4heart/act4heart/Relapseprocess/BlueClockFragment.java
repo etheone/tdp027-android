@@ -3,6 +3,7 @@ package com.act4heart.act4heart.Relapseprocess;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
@@ -110,7 +111,9 @@ public class BlueClockFragment extends Fragment {
 
             @Override
             public void onFinish() {
-
+                Intent openMainActivity= new Intent(getContext(), getActivity().getClass());
+                openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(openMainActivity);
                 //Sets the last tick in the clock fields.
                 minutes.setText("00");
                 seconds.setText("00");
@@ -206,7 +209,7 @@ public class BlueClockFragment extends Fragment {
             }
         }
 
-        clockTimer.cancel();
+        //clockTimer.cancel();
     }
 
     public void setTimer(int _countDown) {
@@ -233,15 +236,22 @@ public class BlueClockFragment extends Fragment {
     @Override
     public void onStop(){
         super.onStop();
-
         stopAlarm();
+
     }
 
     @Override
     public void onDetach(){
         super.onDetach();
-
         stopAlarm();
+    }
+
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        stopAlarm();
+        clockTimer.cancel();
+
     }
 
     //Used to link a button that is suppose to be activated when the clock timer runs out.
