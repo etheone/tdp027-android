@@ -26,24 +26,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Du bör verkligen ringa 112, tryck på den gröna telefonknappen"
+            android:text="Ring 112 direkt, det finns en risk att du har drabbats av hjärtinfarkt"
             android:id="@+id/ambulans_text"
             android:textColor="#FFFFFF"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textSize="23dp" />
+            android:textSize="23dp"
+            android:gravity="center_horizontal" />
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/phone_icon"
-            android:layout_below="@+id/ambulans_text"
+            android:src="@drawable/callbutton"
+            android:layout_below="@+id/textView4"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/callbutton" />
+            android:layout_marginTop="20dp" />
 
         <RelativeLayout
             android:orientation="horizontal"
@@ -60,48 +61,66 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Din akutsituation:"
-            android:id="@+id/situationLabel"
-            android:textColor="#FFFFFF"
-            android:textSize="23dp"
-            android:layout_below="@+id/phone_icon"
-            android:layout_marginTop="70dp"
-            android:layout_alignLeft="@+id/positionLayout"
-            android:layout_alignStart="@+id/positionLayout" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/situationLabel"
-            android:layout_alignLeft="@+id/situationLabel"
-            android:layout_alignStart="@+id/situationLabel"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/phone_icon"
+            android:layout_alignLeft="@+id/positionLayout"
+            android:layout_alignStart="@+id/positionLayout"
+            android:id="@+id/relativeLayout">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Letar efter address..."
-                android:id="@+id/positionText2"
-                android:textColor="#FFFFFF"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textSize="17dp"
-                android:layout_marginRight="10dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nuvarande position:"
-                android:id="@+id/labelPosition2"
-                android:textColor="#FFFFFF"
-                android:textSize="17dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuvarande position:"
+            android:id="@+id/labelPosition2"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            android:layout_below="@+id/textView5"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Letar efter address..."
+            android:id="@+id/positionText2"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            android:layout_below="@+id/labelPosition2"
+            android:layout_alignRight="@+id/labelPosition2"
+            android:layout_alignEnd="@+id/labelPosition2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inta en vilande position och möt inte ambulansen. Glöm inte att berätta din adress och om du har någon portkod."
+            android:id="@+id/textView4"
+            android:layout_below="@+id/ambulans_text"
+            android:layout_centerHorizontal="true"
+            android:textSize="17dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tryck på den gröna knappen för att kontakta SOS Alarm."
+            android:id="@+id/textView5"
+            android:layout_alignTop="@+id/relativeLayout"
+            android:layout_centerHorizontal="true"
+            android:textSize="17dp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal" />
 
 
     </RelativeLayout>
