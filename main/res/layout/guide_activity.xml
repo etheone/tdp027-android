@@ -33,25 +33,29 @@
             />
 
         <Button
-            android:layout_width="140dp"
-            android:layout_height="50dp"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
             android:text="Föregående"
             android:id="@+id/btn_previous"
             android:background="@drawable/standard_button"
             android:layout_marginLeft="10dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:alpha="0.3" />
+            android:alpha="0.3"
+            android:textAllCaps="false"
+            android:textSize="20dp"/>
 
         <Button
-            android:layout_width="140dp"
-            android:layout_height="50dp"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
             android:text="Nästa"
             android:id="@+id/btn_next"
             android:background="@drawable/standard_button"
             android:layout_marginRight="10dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false"
+            android:textSize="20dp"/>
 
     </RelativeLayout>
 </LinearLayout>

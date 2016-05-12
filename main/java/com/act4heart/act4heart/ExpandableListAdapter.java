@@ -2,6 +2,8 @@ package com.act4heart.act4heart;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,10 +55,20 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = infalInflater.inflate(R.layout.list_item, null);
         }
 
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.lbl_list_item);
-
+        TextView txtListChild = (TextView) convertView.findViewById(R.id.lbl_list_item);
         txtListChild.setText(childText);
+
+        if(childPosition == 0) {
+            TextView txtListChild2 = (TextView) convertView.findViewById(R.id.lbl_list_item2);
+
+            txtListChild2.setClickable(true);
+            txtListChild2.setMovementMethod(LinkMovementMethod.getInstance());
+            String text = "<a href='http://www.1177.se'> Läs vidare på 1177. </a>";
+            txtListChild2.setText(Html.fromHtml(text));
+
+            txtListChild2.setVisibility(View.VISIBLE);
+
+        }
         return convertView;
     }
 

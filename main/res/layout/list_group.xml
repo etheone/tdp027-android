@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/lbl_list_header"
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-        android:textSize="17dp"
+        android:textSize="21dp"
         android:textColor="#ffffff"/>
 
 </LinearLayout>

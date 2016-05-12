@@ -47,14 +47,16 @@
         </ListView>
 
         <Button
-            android:layout_width="200dp"
+            android:layout_width="300dp"
             android:layout_height="0dp"
             android:text="Hoppa över"
             android:id="@+id/btn_continue"
             android:background="@drawable/standard_button"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="20dp"/>
 
     </LinearLayout>
 </LinearLayout>

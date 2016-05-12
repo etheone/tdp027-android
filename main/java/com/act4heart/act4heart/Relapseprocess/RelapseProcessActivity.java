@@ -96,7 +96,7 @@ public class RelapseProcessActivity extends AppCompatActivity {
         // Create a dialog alert that tells user that you are ending the emergency process
         // Choose either Ja to end the process or no to continue
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-        dlgAlert.setMessage("Vilken du verkligen avbryta och återgå till huvudmenyn?");
+        dlgAlert.setMessage("Vill du verkligen avbryta och återgå till huvudmenyn?");
         dlgAlert.setTitle("OBS!");
         dlgAlert.setPositiveButton("Ja",
                 new DialogInterface.OnClickListener() {
