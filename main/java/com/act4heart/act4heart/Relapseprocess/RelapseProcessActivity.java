@@ -41,7 +41,7 @@ public class RelapseProcessActivity extends AppCompatActivity {
         //Set the toolbar name
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle("Återfallsprocess");
+            ab.setTitle("Återfall");
         }
 
         //Instatiate timeStampHandler

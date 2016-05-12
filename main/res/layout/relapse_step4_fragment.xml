@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="10dp"
         android:text="Välj en knapp när den blå klockan blir 00:00"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
