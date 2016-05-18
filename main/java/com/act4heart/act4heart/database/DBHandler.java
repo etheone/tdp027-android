@@ -27,7 +27,9 @@ public class DBHandler {
     public  static void sendInfoToDB(String activity, Context context) {
         // Instantiate the RequestQueue.
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url ="http://act4heart-act4heart.rhcloud.com/sendData?user=" + phoneId + "&path=" + activity + "&unixtime=" + System.currentTimeMillis()/1000L;
+        //String url ="http://act4heart-act4heart.rhcloud.com/sendData?user=" + phoneId + "&path=" + activity + "&unixtime=" + System.currentTimeMillis()/1000L;
+        // http://act4heartweb-act4heartweb.rhcloud.com/
+        String url ="http://act4heartweb-act4heartweb.rhcloud.com/sendData?user=" + phoneId + "&path=" + activity + "&unixtime=" + System.currentTimeMillis()/1000L;
         //System.out.println(System.currentTimeMillis());
         //System.out.println(System.currentTimeMillis()/1000L);
 
