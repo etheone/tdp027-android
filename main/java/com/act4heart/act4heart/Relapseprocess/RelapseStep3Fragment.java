@@ -55,7 +55,7 @@ public class RelapseStep3Fragment extends Fragment {
         // Activate blue clock and select which button you want to set to active(
         //provide this with what step you want to move to)
         clock = BlueClockFragment.newInstance();
-        clock.setTimer(5);
+        clock.setTimer(30);
         clock.linkButton(sosBtn,3);
 
         //Puts a clock fragment for this relapsefragment into the clock_container.

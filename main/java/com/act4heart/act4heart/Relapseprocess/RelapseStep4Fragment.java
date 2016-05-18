@@ -71,7 +71,7 @@ public class RelapseStep4Fragment extends Fragment {
         });
         // Activate blue clock.
         clock = BlueClockFragment.newInstance();
-        clock.setTimer(5);
+        clock.setTimer(30);
         clock.setDialogText(null);
         clock.linkButton(btnNotHurting, 4);
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.clock_container_step4, clock).commit();

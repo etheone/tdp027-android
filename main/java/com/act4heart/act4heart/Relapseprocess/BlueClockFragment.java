@@ -113,6 +113,7 @@ public class BlueClockFragment extends Fragment {
             @Override
             public void onFinish() {
 
+                /*
                 getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                         + WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
                         +WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
@@ -121,6 +122,8 @@ public class BlueClockFragment extends Fragment {
                 Intent openMainActivity= new Intent(getContext(), getActivity().getClass());
                 openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(openMainActivity);
+
+                */
 
                 //Sets the last tick in the clock fields.
                 minutes.setText("00");
