@@ -3,6 +3,7 @@ package com.act4heart.act4heart;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -13,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -109,6 +111,16 @@ public class BlueClockFragment extends Fragment {
 
             @Override
             public void onFinish() {
+
+                //TODO Only works once
+                getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+                        + WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+                        +WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                        +WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+
+                Intent openMainActivity= new Intent(getContext(), getActivity().getClass());
+                openMainActivity.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(openMainActivity);
 
                 //Sets the last tick in the clock fields.
                 minutes.setText("00");
@@ -211,7 +223,7 @@ public class BlueClockFragment extends Fragment {
             }
         }
 
-        clockTimer.cancel();
+        //clockTimer.cancel();
     }
 
     public void setTimer(int _countDown) {
@@ -238,15 +250,20 @@ public class BlueClockFragment extends Fragment {
     @Override
     public void onStop(){
         super.onStop();
-
         stopAlarm();
     }
 
     @Override
     public void onDetach(){
         super.onDetach();
-
         stopAlarm();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        stopAlarm();
+        clockTimer.cancel();
     }
 
     //Used to link a button that is suppose to be activated when the clock timer runs out.
