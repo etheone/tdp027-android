@@ -21,7 +21,7 @@ public class StartMenuActivity extends AppCompatActivity{
 
     public static boolean soundOn = true;
     public static SharedPreferences prefs;
-    public final static String EMERGENCY_PHONE_NUMBER = "0708565661";
+    public final static String EMERGENCY_PHONE_NUMBER = "0706190790";
 
     private Menu thisMenu = null;
 

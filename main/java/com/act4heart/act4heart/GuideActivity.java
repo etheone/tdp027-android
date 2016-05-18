@@ -32,7 +32,7 @@ public class GuideActivity extends AppCompatActivity {
 
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle("Guidad rundtur");
+            ab.setTitle("Presentation");
         }
 
         previousButton = (Button) findViewById(R.id.btn_previous);
