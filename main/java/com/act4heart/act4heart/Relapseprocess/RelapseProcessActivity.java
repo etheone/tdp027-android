@@ -48,6 +48,7 @@ public class RelapseProcessActivity extends AppCompatActivity {
         timeStampHandler = new TimeStampHandler(this);
 
         switchFragment(2);
+
     }
 
     //Takes an argument that is used to determine the next step in the relapseprocess
