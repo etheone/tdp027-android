@@ -52,7 +52,10 @@ public class GuideActivity extends AppCompatActivity {
         });
 
         currentImage = 0;
-        imageNames = new ArrayList<Integer>(){{add(R.drawable.startakut); add(R.drawable.hardunitro); add(R.drawable.gavidare); add(R.drawable.blaklocka); add(R.drawable.ring112); add(R.drawable.ardusaker);}};
+        imageNames = new ArrayList<Integer>(){{add(R.drawable.android0); add(R.drawable.android1); add(R.drawable.android2); add(R.drawable.android3);
+            add(R.drawable.android4); add(R.drawable.android5); add(R.drawable.android6); add(R.drawable.android7); add(R.drawable.android8);
+            add(R.drawable.android9); add(R.drawable.android10); add(R.drawable.android11); add(R.drawable.android12); add(R.drawable.android13);
+            add(R.drawable.android14); add(R.drawable.android15);}};
         image = (ImageView) findViewById(R.id.pictureHolder);
 
         setImage();
